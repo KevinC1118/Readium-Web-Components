@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Welcome to Readium.js - Readium.js</title>
+  <title>Readium.js development - Readium.js</title>
   <meta name="author" content="Justin Hume">
   <link rel="author" href="humans.txt">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,7 +13,7 @@
   
     
   
-  <meta name="description" content="Welcome to the new Readium.js reference site and blog! Easy, open, web Readium.js is a BSD licensed open-source project that makes it simple to &hellip;">
+  <meta name="description" content="This post discusses Readium.js development priorities up to this point, as well as how you can get involved with the project. Motivation Readium.js &hellip;">
   
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -21,17 +21,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://readium.github.io/Readium-Web-Components/blog/2013/05/29/welcome-to-readium-js/">
+  <link rel="canonical" href="http://readium.github.io/Readium-Web-Components/blog/2013/05/28/readium-js-development/">
   <link href="/Readium-Web-Components/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
   <link href="/Readium-Web-Components/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/Readium-Web-Components/atom.xml" rel="alternate" title="Readium.js" type="application/atom+xml">
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="Readium.js" />
-  <meta name="og:title" content="Welcome to Readium.js" />
-  <meta name="og:description" content="Welcome to the new Readium.js reference site and blog! Easy, open, web Readium.js is a BSD licensed open-source project that makes it simple to &hellip;" />
-  <meta name="og:url" content="http://readium.github.io/Readium-Web-Components/blog/2013/05/29/welcome-to-readium-js/"/>
-  <meta name="url" content="http://readium.github.io/Readium-Web-Components/blog/2013/05/29/welcome-to-readium-js/">
+  <meta name="og:title" content="Readium.js development" />
+  <meta name="og:description" content="This post discusses Readium.js development priorities up to this point, as well as how you can get involved with the project. Motivation Readium.js &hellip;" />
+  <meta name="og:url" content="http://readium.github.io/Readium-Web-Components/blog/2013/05/28/readium-js-development/"/>
+  <meta name="url" content="http://readium.github.io/Readium-Web-Components/blog/2013/05/28/readium-js-development/">
   
   <meta name="subject" content=""/>
   <meta name="category" content=""/>
@@ -76,7 +76,7 @@
 
   <header>
     
-      <h1 class="entry-title">Welcome to Readium.js</h1>
+      <h1 class="entry-title">Readium.js Development</h1>
     
     
       <p class="meta">
@@ -101,7 +101,7 @@
   
 
 
-<time datetime="2013-05-29T02:11:00-07:00" pubdate data-updated="true">May 29<span>th</span>, 2013</time> - 
+<time datetime="2013-05-28T13:48:00-07:00" pubdate data-updated="true">May 28<span>th</span>, 2013</time> - 
         
 
 
@@ -111,30 +111,43 @@
   </header>
 
 
-  <div class="entry-content"><p>Welcome to the new Readium.js reference site and blog!</p>
+  <div class="entry-content"><p>This post discusses Readium.js development priorities up to this point, as well as how you can get involved with the project.</p>
 
-<h2>Easy, open, web</h2>
+<h2>Motivation</h2>
 
-<p>Readium.js is a BSD licensed open-source project that makes it simple to build EPUB 3 web applications, or to embed EPUB 3 publications in web applications.</p>
+<p>Readium.js is designed as a set of modular javascript components <!--more-->that can be used <a href="/Readium-Web-Components/get-started/download.html#simple-download">together</a> to embed EPUB publications in a web application, or <a href="/Readium-Web-Components/get-started/download.html#readium-js-download">independently</a> to build custom web applications with EPUB support.</p>
 
-<!--more-->
+<h4>Fix things that are painful</h4>
 
+<p>When a developer is looking for projects, it&#8217;s not uncommon to hear the suggestion that they work on a pain point. At <a href="http://evidentpoint.com">Evident Point</a>, I&#8217;ve been involved in building a number of web-based EPUB 3 readers. The original <a href="http://github.com/readium/readium">Readium</a> project often served as a template for these efforts.</p>
 
-<p>It&#8217;s designed to be web-centric, light-weight and simple to use. The Readium.js library provides a set of javascript modules and APIs that can be easily added to any web project.</p>
+<p>While the original Readium provided a good demonstration of an EPUB 3 reader, I (and others, I believe) found it quite painful as developers to adapt the source to projects that were new, custom, or had more stringent requirements for performance, features etc.</p>
 
-<h3>The project &amp; contributors</h3>
+<p>By designing the Readium.js library it was my hope that Readium.js could, in typically-modern-web-javascript fashion, make it painless for developers to build a whole variety of web-based EPUB applications.</p>
 
-<p>Readium.js is a project under the auspices of the <a href="">International Digital Publishing Forum</a> (IDPF), developed and maintained by <a href="">Evident Point Software Corp.</a>.</p>
+<h4>Keep improving</h4>
 
-<p>This project has <a href="/Readium-Web-Components/about/history-and-goals.html">evolved</a> from the <a href="http://readium.org">Readium</a> project. Readium was developed by <a href="https://github.com/matthewrobertson">Matthew Robertson</a> and <a href="http://github.com/justinHume">Justin Hume</a> at Evident Point Software under contract from the IDPF, with major contributions from <a href="http://www.benetech.org/literacy/bookshare.shtml">Benetech</a>, the <a href="http://www.daisy.org/home">DAISY Consortium</a> and <a href="https://github.com/readium/readium/contributors">others</a>.</p>
+<p>It&#8217;s also my hope that from here we can build a community around Readium.js to get the <a href="/Readium-Web-Components/get-started/api.html">API</a> right, build in additional features and improve digital publishing on the web.</p>
 
-<h3>Start building and developing!</h3>
+<p>The original Readium project was successful due to the <a href="https://github.com/readium/readium/issues">involvement</a> of a <a href="https://github.com/readium/readium/contributors">community</a>. Much of Readium.js is built on the contributions of this community - either code, wisdom, or lessons learned. I hope this can continue.</p>
 
-<p>Readium.js is currently in Beta, but we&#8217;re hoping to move things along quickly, stabilize the API, and add features. Feedback on any aspect of this site, or <a href="http://github.com/readium/Readium-Web-Components">Readium.js</a> is very welcome. If you&#8217;re interested in contributing, there is a long list of things to do and I&#8217;d be eager to walk you through it.</p>
+<h2>Development Priorities</h2>
 
-<p>You can get in contact with me through the Readium.js <a href="https://github.com/readium/Readium-Web-Components/issues">issue tracker</a>, by email at justinh@evidentpoint.com, or through <a href="http://github.com/justinHume">Github</a>.</p>
+<p>My boss will probably cringe when he reads this but, during the development of Readium.js, I prioritized the things engineers like: The API design, a reasonable standard of engineering and solid documentation.</p>
 
-<p>Otherwise, take a look around the site, and give Readium.js a try!</p>
+<p>I felt it was important to get to a point where community members could reason about the design of the library and API, test the library, and get involved with the source code. I think getting the library &#8216;right&#8217; will depend on early feeback and iteration.</p>
+
+<h4>Someone get the polish&#8230;</h4>
+
+<p>As a result of this priority, some EPUB 3 feature support was lost (cringing will not be held against you) in the design and refactoring. Getting these features back is in some cases just a matter of &#8220;turning&#8221; them back on. In some cases, it&#8217;ll be a bit more work. However, I think Readium.js will be back up to feature-completeness pretty quickly.</p>
+
+<h2>How you can help</h2>
+
+<p>I think Readium.js has some decent abstractions, encapsulation and documentation (in addition to some&#8230; rough naming), so the <a href="http://github.com/readium/Readium-Web-Components">code base</a> should be fairly accessible for contributors. I&#8217;ll also be able to help point you to where and how you can tackle certain things. Feedback and <a href="http://github.com/readium/Readium-Web-Components/issues">issue reports</a> are also very welcome.</p>
+
+<p>If you know of something you&#8217;d like to contribute, feel free to get in touch (justinh@evidentpoint.com). If you&#8217;re looking for something (small or large) to contribute, you can choose from a list of things that need doing.</p>
+
+<p>I hope you get involved.</p>
 </div>
 
 
@@ -161,7 +174,7 @@
   
 
 
-<time datetime="2013-05-29T02:11:00-07:00" pubdate data-updated="true">May 29<span>th</span>, 2013</time>
+<time datetime="2013-05-28T13:48:00-07:00" pubdate data-updated="true">May 28<span>th</span>, 2013</time>
       
 
 
@@ -181,8 +194,8 @@
 
     
     
-      <a class="pull-left" href="/blog/2013/05/28/readium-js-development/" title="Previous Post: Readium.js development">&laquo; Readium.js development</a>
     
+      <a class="pull-right" href="/blog/2013/05/29/welcome-to-readium-js/" title="Next Post: Welcome to Readium.js">Welcome to Readium.js &raquo;</a>
     
   </footer>
 
