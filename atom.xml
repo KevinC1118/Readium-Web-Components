@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Readium.js]]></title>
+  <link href="http://readium.github.io/Readium-Web-Components/atom.xml" rel="self"/>
+  <link href="http://readium.github.io/Readium-Web-Components/"/>
+  <updated>2013-05-28T18:28:57-07:00</updated>
+  <id>http://readium.github.io/Readium-Web-Components/</id>
+  <author>
+    <name><![CDATA[Justin Hume]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[test_post]]></title>
+    <link href="http://readium.github.io/Readium-Web-Components/blog/2013/04/26/test-post/"/>
+    <updated>2013-04-26T14:03:00-07:00</updated>
+    <id>http://readium.github.io/Readium-Web-Components/blog/2013/04/26/test-post</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+</feed>

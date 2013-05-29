@@ -22,7 +22,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://readium.github.io/Readium-Web-Components/">
+  <link rel="canonical" href="http://readium.github.io/Readium-Web-Components/search.html">
   <link href="/readium-web-components/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
   <link href="/readium-web-components/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -31,8 +31,8 @@
   <meta name="og:site_name" content="Readium.js" />
   <meta name="og:title" content="Readium.js" />
   <meta name="og:description" content=" " />
-  <meta name="og:url" content="http://readium.github.io/Readium-Web-Components/index.html"/>
-  <meta name="url" content="http://readium.github.io/Readium-Web-Components/index.html">
+  <meta name="og:url" content="http://readium.github.io/Readium-Web-Components/search.html"/>
+  <meta name="url" content="http://readium.github.io/Readium-Web-Components/search.html">
   
   <meta name="distribution" content="global">
   <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
@@ -44,104 +44,21 @@
 </head>
 
 <body   >
-  <div id="front-wrapper">
-  <div id="hero">
-    <div id="hero-inner" class="container">
-      <div class="span10 offset1">
-  <h1>
-    Readium.js
-  </h1>
-  <h2>EPUB 3 on the web</h2>
+  <h1 class="entry-title"><center>Search Results</center></h1>
+<div id="search_loading" style="margin: 40px 0">
+    <center><img src="/readium-web-components/images/loading.gif"></center>
 </div>
 
-    </div>
-  </div>
-  <section id="sub-hero">
-    <div class="container">
-      <div class="row">
-  <div class="span4">
-    <h2>about</h2>
-<p>Readium.js makes it easy to deploy <a href="http://idpf.org/epub/30">EPUB 3</a> support on the web</p>
-<p>Learn more about the project&#8217;s <a href="/readium-web-components/about/history-and-goals.html">history and goals</a></p>
-
-  </div>
-  <div class="span4">
-    <h2>get started</h2>
-<p><a href="/readium-web-components/get-started/download.html">Download</a> the library and <a href="/readium-web-components/get-started/use-it.html">get started now</a></p>
-<p>The Readium.js <a href="/readium-web-components/get-started/api.html">API</a> will make it easy to use EPUB 3 in your project</p>
-  </div>
-  <div class="span4">
-    <h2>architecture &amp; development</h2>
-<p><a href="https://github.com/readium/Readium-Web-Components">Contribute</a>, or learn more about the <a href="/readium-web-components/architecture/philosophy.html">philosophy, design and development</a> of the project</p>
-  </div>
+<script type="text/javascript" src="/readium-web-components/javascripts/jquery-tapir.js"></script>
+<div id="search_results" style="display:none">
+<br>
 </div>
-
-    </div>
-  </section>
-  <div class="container">
-    <div class="row" id="post-container">
-    
-    
-    
-      <article class="span4">
-        <div class="article-format">
-
-  <header>
-    
-      <h1 class="entry-title"><a href="/readium-web-components/blog/2013/04/26/test-post/">Test_post</a></h1>
-    
-    
-      <p class="meta">
-        
-  
-
-
-  
-    <span class="byline author vcard">by <span class="fn">Justin Hume</span></span>
-  
-
- - 
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-04-26T14:03:00-07:00" pubdate data-updated="true">Apr 26<span>th</span>, 2013</time> - 
-        
-
-
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content">
-</div>
-  
-  
-
-
-</div>
-
-      </article>
-    
-    </div>
-      <div class="row">
-        <ul class="pager">
-          
-          
-        </ul>
-      </div>
-  </div>
-</div>
+<script>
+         $('#search_results').tapir({
+             'token': '',
+             'complete' : function() { document.getElementById('search_loading').style.display="none"; }
+         });
+</script>
 
 
   <div id="footer-widgets">
