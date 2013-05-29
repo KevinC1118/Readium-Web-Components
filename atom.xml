@@ -4,7 +4,7 @@
   <title><![CDATA[Readium.js]]></title>
   <link href="http://readium.github.io/Readium-Web-Components/atom.xml" rel="self"/>
   <link href="http://readium.github.io/Readium-Web-Components/"/>
-  <updated>2013-05-28T18:44:42-07:00</updated>
+  <updated>2013-05-29T02:59:11-07:00</updated>
   <id>http://readium.github.io/Readium-Web-Components/</id>
   <author>
     <name><![CDATA[Justin Hume]]></name>
@@ -14,11 +14,34 @@
 
   
   <entry>
-    <title type="html"><![CDATA[test_post]]></title>
-    <link href="http://readium.github.io/Readium-Web-Components/blog/2013/04/26/test-post/"/>
-    <updated>2013-04-26T14:03:00-07:00</updated>
-    <id>http://readium.github.io/Readium-Web-Components/blog/2013/04/26/test-post</id>
-    <content type="html"><![CDATA[
+    <title type="html"><![CDATA[Welcome to Readium.js]]></title>
+    <link href="http://readium.github.io/Readium-Web-Components/blog/2013/05/29/welcome-to-readium-js/"/>
+    <updated>2013-05-29T02:11:00-07:00</updated>
+    <id>http://readium.github.io/Readium-Web-Components/blog/2013/05/29/welcome-to-readium-js</id>
+    <content type="html"><![CDATA[<p>Welcome to the new Readium.js reference site and blog!</p>
+
+<h3>Easy, open, web</h3>
+
+<p>Readium.js is a BSD licensed open-source project that makes it simple to build EPUB 3 web applications, or to embed EPUB 3 publications in web applications.</p>
+
+<!--more-->
+
+
+<p>It&#8217;s designed to be web-centric, light-weight and simple to use. The Readium.js library provides a set of javascript modules and APIs that can be easily added to any web project.</p>
+
+<h3>The project &amp; contributors</h3>
+
+<p>Readium.js is a project under the auspices of the <a href="">International Digital Publishing Forum</a> (IDPF), developed and maintained by <a href="">Evident Point Software Corp.</a>.</p>
+
+<p>This project has <a href="http://readium.github.io/Readium-Web-Components/Readium-Web-Components/about/history-and-goals.html">evolved</a> from the <a href="http://readium.org">Readium</a> project. Readium was developed by <a href="https://github.com/matthewrobertson">Matthew Robertson</a> and <a href="http://github.com/justinHume">Justin Hume</a> at Evident Point Software under contract from the IDPF, with major contributions from <a href="http://www.benetech.org/literacy/bookshare.shtml">Benetech</a>, the <a href="http://www.daisy.org/home">DAISY Consortium</a> and <a href="https://github.com/readium/readium/contributors">others</a>.</p>
+
+<h3>Start building and developing!</h3>
+
+<p>Readium.js is currently in Beta, but we&#8217;re hoping to move things along quickly, stabilize the API, and add features. Feedback on any aspect of this site, or <a href="http://github.com/readium/Readium-Web-Components">Readium.js</a> is very welcome. If you&#8217;re interested in contributing, there is a long list of things to do and I&#8217;d be eager to walk you through it.</p>
+
+<p>You can get in contact with me through the Readium.js <a href="https://github.com/readium/Readium-Web-Components/issues">issue tracker</a>, by email at justinh@evidentpoint.com, or through <a href="http://github.com/justinHume">Github</a>.</p>
+
+<p>Otherwise, take a look around the site, and give Readium.js a try!</p>
 ]]></content>
   </entry>
   

@@ -1,40 +1,42 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>http://readium.github.io/Readium-Web-Components/blog/2013/04/26/test-post/</loc>
-        <lastmod>2013-04-26T14:03:01-07:00</lastmod>
+        <loc>
+            http://readium.github.io/Readium-Web-Components/blog/2013/05/29/welcome-to-readium-js/
+        </loc>
+        <lastmod>2013-05-29T02:56:59-07:00</lastmod>
     </url>
     <url>
         <loc>http://readium.github.io/Readium-Web-Components/about/history-and-goals.html</loc>
-        <lastmod>2013-05-28T18:20:50-07:00</lastmod>
+        <lastmod>2013-05-29T00:47:02-07:00</lastmod>
     </url>
     <url>
         <loc>http://readium.github.io/Readium-Web-Components/architecture/design.html</loc>
-        <lastmod>2013-05-28T18:20:50-07:00</lastmod>
+        <lastmod>2013-05-29T02:57:11-07:00</lastmod>
     </url>
     <url>
         <loc>http://readium.github.io/Readium-Web-Components/architecture/philosophy.html</loc>
-        <lastmod>2013-05-28T18:20:50-07:00</lastmod>
+        <lastmod>2013-05-29T02:57:14-07:00</lastmod>
     </url>
     <url>
         <loc>http://readium.github.io/Readium-Web-Components/blog/archives/</loc>
-        <lastmod>2013-05-28T18:20:50-07:00</lastmod>
+        <lastmod>2013-05-29T02:56:59-07:00</lastmod>
     </url>
     <url>
         <loc>http://readium.github.io/Readium-Web-Components/get-started/api.html</loc>
-        <lastmod>2013-05-28T18:20:50-07:00</lastmod>
+        <lastmod>2013-05-29T02:57:22-07:00</lastmod>
     </url>
     <url>
         <loc>http://readium.github.io/Readium-Web-Components/get-started/download.html</loc>
-        <lastmod>2013-05-28T18:20:50-07:00</lastmod>
+        <lastmod>2013-05-29T02:57:26-07:00</lastmod>
     </url>
     <url>
         <loc>http://readium.github.io/Readium-Web-Components/get-started/use-it.html</loc>
-        <lastmod>2013-05-28T18:20:50-07:00</lastmod>
+        <lastmod>2013-05-29T02:57:31-07:00</lastmod>
     </url>
     <url>
         <loc>http://readium.github.io/Readium-Web-Components/</loc>
-        <lastmod>2013-04-26T14:03:01-07:00</lastmod>
+        <lastmod>2013-05-29T02:56:59-07:00</lastmod>
     </url>
     <url>
         <loc>http://readium.github.io/Readium-Web-Components/search.html</loc>

@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Getting started with RWC - Readium.js</title>
+  <title>Getting started with Readium.js - Readium.js</title>
   <meta name="author" content="Justin Hume">
   <link rel="author" href="humans.txt">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,7 +13,7 @@
   
     
   
-  <meta name="description" content="SimpleRWC.js &amp; Demo application The easiest way to get familiar with Readium Web Components is to use SimpleRWC.js, a javascript module that &hellip;">
+  <meta name="description" content="This page describes a small demo that leverages Readium.js to embed EPUB 3 content in a web application. This should help you get familiar with all &hellip;">
   
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -28,8 +28,8 @@
   <link href="/Readium-Web-Components/atom.xml" rel="alternate" title="Readium.js" type="application/atom+xml">
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="Readium.js" />
-  <meta name="og:title" content="Getting started with RWC" />
-  <meta name="og:description" content="SimpleRWC.js &amp; Demo application The easiest way to get familiar with Readium Web Components is to use SimpleRWC.js, a javascript module that &hellip;" />
+  <meta name="og:title" content="Getting started with Readium.js" />
+  <meta name="og:description" content="This page describes a small demo that leverages Readium.js to embed EPUB 3 content in a web application. This should help you get familiar with all &hellip;" />
   <meta name="og:url" content="http://readium.github.io/Readium-Web-Components/get-started/use-it.html"/>
   <meta name="url" content="http://readium.github.io/Readium-Web-Components/get-started/use-it.html">
   
@@ -71,7 +71,7 @@
       <div role="div">
         
         <header>
-          <h1 class="entry-title">Getting Started With RWC</h1>
+          <h1 class="entry-title">Getting Started With Readium.js</h1>
           <p class="meta">
 
 
@@ -87,73 +87,71 @@
 <time datetime="2013-05-22T15:53:00-07:00" pubdate data-updated="true">May 22<span>nd</span>, 2013</time></p>
         </header>
         
-        <p><a id="simple-rwc-demo"></a></p>
+        <p>This page describes a small demo that leverages Readium.js to embed EPUB 3 content in a web application. This should help you get familiar with all that Readium.js has to offer.</p>
 
-<h3>SimpleRWC.js &amp; Demo application</h3>
+<p>If you have any questions, problems, suggestions, you can email me at justinh@evidentpoint.com, find me on <a href="http://github.com/justinHume">Github</a> or add to the Readium.js <a href="https://github.com/readium/Readium-Web-Components/issues">issue tracker</a>.</p>
 
-<p>The easiest way to get familiar with Readium Web Components is to use SimpleRWC.js, a javascript module that wires together all the RWC modules in one object and exposes a simplified API.</p>
+<p><a id="simple-rwc-demo"></a></p>
 
-<p>This module is included with a small web application that embeds SimpleRWC.js and wires a few controls, such as page-next and page-previous, to the SimpleRWC API.</p>
+<h2>SimpleReadium.js &amp; Demo application</h2>
 
-<p>SimpleRWC.js should help you get started using and understanding Readium.js.</p>
+<p>The easiest way to get familiar with Readium.js is to use <a href="/Readium-Web-Components/get-started/download.html">SimpleReadium.js</a>, a javascript module that wires together all the Readium.js modules in one object and exposes a reduced, simplified, API.</p>
+
+<p>The following demo application and SimpleReadium.js should help you get started using and understanding Readium.js.</p>
 
 <h4>Instructions for setting up the demo</h4>
 
-<p>To use this demo, you need to have a web server.</p>
+<p>To use this demo, you need to have a web server. There are four steps to get set up:</p>
 
-<ol>
-<li>Download the SimpleRWC demo application:</li>
-</ol>
+<ul>
+<li>Download the SimpleReadium.js <a href="/Readium-Web-Components/downloads/SimpleReadiumJsDemoApp.zip">demo application</a> (~9 MB)</li>
+<li>Unzip the demo file in the folder you intend to serve the application files</li>
+<li>Start your server</li>
+<li>Point your browser to url/to/demo/index.html</li>
+</ul>
 
 
-<p><a href="">SimpleRWC_Demo.zip</a></p>
-
-<ol>
-<li><p>Unzip the demo file in the folder you intend to serve the application files</p></li>
-<li><p>Start your server</p></li>
-<li><p>Point your browser to url/to/demo/example_reader.html</p></li>
-</ol>
-
+<p>A Github Pages -hosted version of this demo is available <a href="http://readium.github.com/readium-viewer-demo1">here</a>. The <a href="http://github.com/justinHume/simple-epub-3">source</a> for the demo is also available.</p>
 
 <p><a id="simple-rwc-description"></a></p>
 
-<h3>Description of the demo application</h3>
+<h2>Description of the demo application</h2>
 
-<h4>Demo app structure</h4>
+<h3>Demo app structure</h3>
 
 <p>The demo application contains four important pieces:</p>
 
 <ol>
-<li>example_reader.html: The application HTML</li>
-<li>modules_and_dependencies: A folder that contains RWC javascript <a href="">dependencies</a> and SimpleRWC.js</li>
-<li>assets/css: Styling for the demo</li>
-<li>assets/images: Images for the demo</li>
+<li><em>index.html</em> - The application HTML</li>
+<li><em>modules_and_dependencies</em> - A folder that contains javascript <a href="">dependencies</a> and SimpleReadium.js</li>
+<li><em>assets/css</em> - Styling for the demo</li>
+<li><em>assets/images</em> - Images for the demo</li>
 </ol>
 
 
-<h4>Important parts of the code</h4>
+<h3>Important parts of the code</h3>
 
-<p>Most of the demo application is application-specific code; that is, application layout and styling. There are four important parts of the application that leverage SimpleRWC:</p>
+<p>Most of the demo application is application-specific code; that is, application layout and styling. There are four important parts of the application that leverage SimpleReadium.js:</p>
 
-<h5><em>Create an HTML element in which to embed an EPUB publication</em></h5>
+<h4><em>An HTML element in which to embed an EPUB publication</em></h4>
 
-<figure class='code'><figcaption><span>Embedding element </span></figcaption>
+<p>The margin-top style is required to have this container render under the navbar.</p>
+
+<p>At the moment, this container must have a fixed height set. The height in the demo application is set as a function of the screen size, using the RWCDemoApp.setModuleContainerHeight() method call.</p>
+
+<figure class='code'><figcaption><span>Element to contain EPUB publication </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='HTML'><span class='line'>    <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;epub-reader-container&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;reader&quot;</span> <span class="na">style=</span><span class="s">&quot;height:100%; width:100%&quot;</span><span class="nt">&gt;</span>
-</span><span class='line'>        <span class="nt">&lt;/div&gt;</span>
-</span><span class='line'>    <span class="nt">&lt;/div&gt;</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">&quot;epub-reader-container&quot;</span> <span class="nx">style</span><span class="o">=</span><span class="s2">&quot;margin-top:65px;&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="err">/div&gt;</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h5><em>Initialize the SimpleRWC object</em></h5>
+<h4><em>Initializing the SimpleReadium.js object</em></h4>
 
-<p>The SimpleRWC object requires a reference to the HTML element to bind to, an object of viewer preferences, a URL to the EPUB publication package document, and the package document XML.</p>
+<p>The SimpleReadium.js object requires: a reference to the <em>HTML element to bind to</em>, an object of <em>viewer preferences</em>, a <em>URL to the EPUB publication package document</em>, the <em>package document XML</em>, and a <em>rendering strategy</em>: &#8220;eager&#8221; or &#8220;lazy.&#8221;</p>
 
-<figure class='code'><figcaption><span>Initialize SimpleRWC object </span></figcaption>
+<figure class='code'><figcaption><span>Initialize SimpleReadium.js object </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -170,6 +168,10 @@
 <span class='line-number'>14</span>
 <span class='line-number'>15</span>
 <span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Get the HTML element to bind the module reader to</span>
 </span><span class='line'>    <span class="kd">var</span> <span class="nx">elementToBindReaderTo</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#reader&quot;</span><span class="p">);</span>
 </span><span class='line'>
@@ -185,15 +187,21 @@
 </span><span class='line'>    <span class="p">...</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="c1">// THE MOST IMPORTANT PART - INITIALIZING THE SIMPLE RWC MODEL</span>
-</span><span class='line'>    <span class="nx">RWCDemoApp</span><span class="p">.</span><span class="nx">epubViewer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SimpleRWC</span><span class="p">(</span><span class="nx">elementToBindReaderTo</span><span class="p">,</span> <span class="nx">viewerPreferences</span><span class="p">,</span> <span class="nx">packageDocumentURL</span><span class="p">,</span> <span class="nx">result</span><span class="p">);</span>
+</span><span class='line'>    <span class="c1">// packageDocumentURL is defined elsewhere</span>
+</span><span class='line'>    <span class="c1">// &quot;result&quot; is the package document xml, in this case, the result of an AJAX method call</span>
+</span><span class='line'>    <span class="nx">RWCDemoApp</span><span class="p">.</span><span class="nx">epubViewer</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SimpleRWC</span><span class="p">(</span>
+</span><span class='line'>        <span class="nx">elementToBindReaderTo</span><span class="p">,</span> <span class="nx">viewerPreferences</span><span class="p">,</span> <span class="nx">packageDocumentURL</span><span class="p">,</span> <span class="nx">result</span><span class="p">,</span> <span class="s2">&quot;lazy&quot;</span>
+</span><span class='line'>    <span class="p">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<h5><em>Wire the application to the SimpleRWC API</em></h5>
+<h4><em>Wire the application to the SimpleReadium.js API</em></h4>
 
-<p>Once the SimpleRWC object has been instantiated, the application developer can wire their application to the API provided by RWC. In the case of the demo application, buttons that control next page, previous page etc. have been wired to object.</p>
+<p>Once the SimpleReadium.js object has been instantiated, the application developer can wire their application to the API provided by SimpleReadium.js.</p>
 
-<figure class='code'><figcaption><span>Wire HTML to SimpleRWC object </span></figcaption>
+<p>In the case of the demo application, buttons that control next page, previous page, and a library have been wired to object.</p>
+
+<figure class='code'><figcaption><span>Wire HTML to SimpleReadium.js object </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -227,14 +235,6 @@
 <span class='line-number'>31</span>
 <span class='line-number'>32</span>
 <span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// These are application specific handlers that wire the HTML to the SimpleRWC module API</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="c1">// Set handlers for click events</span>
@@ -253,33 +253,27 @@
 </span><span class='line'>
 </span><span class='line'>    <span class="p">...</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#set-margin&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="kd">var</span> <span class="nx">marginVal</span> <span class="o">=</span> <span class="nx">RWCDemoApp</span><span class="p">.</span><span class="nx">getInputValue</span><span class="p">(</span><span class="s2">&quot;margin-val&quot;</span><span class="p">);</span>
-</span><span class='line'>        <span class="nx">RWCDemoApp</span><span class="p">.</span><span class="nx">epubViewer</span><span class="p">.</span><span class="nx">setMargin</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">marginVal</span><span class="p">));</span>
-</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#toggle-synthetic-btn&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
 </span><span class='line'>
-</span><span class='line'>    <span class="p">...</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#set-font-size&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="kd">var</span> <span class="nx">fontVal</span> <span class="o">=</span> <span class="nx">RWCDemoApp</span><span class="p">.</span><span class="nx">getInputValue</span><span class="p">(</span><span class="s2">&quot;font-size-val&quot;</span><span class="p">);</span>
-</span><span class='line'>        <span class="nx">RWCDemoApp</span><span class="p">.</span><span class="nx">epubViewer</span><span class="p">.</span><span class="nx">setFontSize</span><span class="p">(</span><span class="nb">parseInt</span><span class="p">(</span><span class="nx">fontVal</span><span class="p">));</span>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="p">...</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#set-one-page&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">RWCDemoApp</span><span class="p">.</span><span class="nx">epubViewer</span><span class="p">.</span><span class="nx">setSyntheticLayout</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
-</span><span class='line'>    <span class="p">});</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="p">...</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#set-two-pages&quot;</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;click&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">RWCDemoApp</span><span class="p">.</span><span class="nx">epubViewer</span><span class="p">.</span><span class="nx">setSyntheticLayout</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="nx">currLayoutIsSynthetic</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">RWCDemoApp</span><span class="p">.</span><span class="nx">epubViewer</span><span class="p">.</span><span class="nx">setSyntheticLayout</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span><span class='line'>            <span class="nx">currLayoutIsSynthetic</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+</span><span class='line'>            <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#single-page-ico&quot;</span><span class="p">).</span><span class="nx">show</span><span class="p">();</span>
+</span><span class='line'>            <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#synthetic-page-ico&quot;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+</span><span class='line'>        <span class="p">}</span>
+</span><span class='line'>        <span class="k">else</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">RWCDemoApp</span><span class="p">.</span><span class="nx">epubViewer</span><span class="p">.</span><span class="nx">setSyntheticLayout</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span><span class='line'>            <span class="nx">currLayoutIsSynthetic</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+</span><span class='line'>            <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#single-page-ico&quot;</span><span class="p">).</span><span class="nx">hide</span><span class="p">();</span>
+</span><span class='line'>            <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#synthetic-page-ico&quot;</span><span class="p">).</span><span class="nx">show</span><span class="p">();</span>
+</span><span class='line'>        <span class="p">}</span>
 </span><span class='line'>    <span class="p">});</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
+<h4><em>Render the EPUB publication</em></h4>
 
+<p>.render() must be called to start rendering EPUB publication resources. The SimpleReadium.js object will fire an &#8220;epubLoaded&#8221; event once the EPUB is sufficiently loaded to interact with; this depends on the rendering strategy.</p>
 
 <figure class='code'><figcaption><span>Render and show EPUB publication </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -289,27 +283,25 @@
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Render the reader. This will load all the viewable resources of the EPUB and fire </span>
-</span><span class='line'>    <span class="c1">//   an event when they&#39;ve all loaded. Once the resources of the epub have been loaded, </span>
-</span><span class='line'>    <span class="c1">//   the second spine item will be shown.</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Render the reader</span>
 </span><span class='line'>    <span class="nx">RWCDemoApp</span><span class="p">.</span><span class="nx">epubViewer</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;epubLoaded&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">RWCDemoApp</span><span class="p">.</span><span class="nx">epubViewer</span><span class="p">.</span><span class="nx">showSpineItem</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">RWCDemoApp</span><span class="p">.</span><span class="nx">epubViewer</span><span class="p">.</span><span class="nx">showSpineItem</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;showed first spine item&quot;</span><span class="p">);</span>
+</span><span class='line'>        <span class="p">});</span>
 </span><span class='line'>    <span class="p">},</span> <span class="nx">that</span><span class="p">);</span>
-</span><span class='line'>    <span class="nx">RWCDemoApp</span><span class="p">.</span><span class="nx">epubViewer</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
+</span><span class='line'>    <span class="nx">RWCDemoApp</span><span class="p">.</span><span class="nx">epubViewer</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><a id="simple-rwc-alt-demo"></a></p>
+<p><a id="next-steps"></a></p>
 
-<h3>Alternative demo app</h3>
+<h2>Next steps</h2>
 
-<p>If you&#8217;re familiar with the Ruby-ish stack (Rake, bundler, rvm etc.) and git, you can get started with the following demo:</p>
+<p>If you feel comfortable with SimpleReadium.js and the demo application, feel free to learn more about the <a href="/Readium-Web-Components/architecture/philosophy.html">philosophy</a>, <a href="/Readium-Web-Components/architecture/design.html">design</a> or <a href="http://github.com/readium/Readium-Web-Components">codebase</a>.</p>
 
-<p>&#8230;..</p>
+<p>The <a href="/Readium-Web-Components/get-started/API.html">API</a> documentation will also help you get familiar with all that Readium.js has to offer.</p>
 
-<p><a id="rwc-ror-demo"></a></p>
-
-<h3>Ruby on Rails demo application</h3>
+<p>Finally, if you&#8217;re ready to start building, you can downlod <a href="/Readium-Web-Components/get-started/download.html">Readium.js</a>.</p>
 
         
           <footer>
@@ -319,7 +311,7 @@
 
 
   
-    <span class="byline author vcard">by <span class="fn">Justin Hume</span></span>
+    <span class="byline author vcard">by <span class="fn"><a href="http://github.com/justinHume">Justin Hume</a></span></span>
   
 
 
@@ -353,7 +345,7 @@
     <ul class="recent_posts">
       
         <li>
-          <a href="/Readium-Web-Components/blog/2013/04/26/test-post/">test_post</a>
+          <a href="/Readium-Web-Components/blog/2013/05/29/welcome-to-readium-js/">Welcome to Readium.js</a>
         </li>
       
     </ul>
@@ -368,7 +360,7 @@
 
   </div>
   <div class="span2">
-    <h2>found on</h2>
+    <!-- <h2>found on</h2>
 
 
 
@@ -382,7 +374,7 @@
 
 
 
-
+ -->
   </div>
 </div>
 
@@ -392,7 +384,7 @@
   <div class="container">
     <p class="pull-left">
   <a href="/Readium-Web-Components/">Readium.js</a>
-  - Copyright &copy; 2013 - Justin Hume
+  - Copyright &copy; 2013 - <span>Created by <a href="http://github.com/justinHume">Justin Hume</a>.</span><!-- Justin Hume -->
 </p>
 <p class="pull-right">
   <span>Powered by <a href="http://octopress.org/">Octopress</a>.</span>

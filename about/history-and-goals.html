@@ -13,7 +13,7 @@
   
     
   
-  <meta name="description" content="Inception and goals The Readium project began in early 2012 as a web-based demonstration of [EPUB 3 (http://idpf.org/epub/30), approved as a &hellip;">
+  <meta name="description" content="Inception and goals The Readium project began in early 2012 as a web-based demonstration of EPUB 3, approved as a standard by the International &hellip;">
   
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -29,7 +29,7 @@
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="Readium.js" />
   <meta name="og:title" content="A history lesson in... Readium" />
-  <meta name="og:description" content="Inception and goals The Readium project began in early 2012 as a web-based demonstration of [EPUB 3 (http://idpf.org/epub/30), approved as a &hellip;" />
+  <meta name="og:description" content="Inception and goals The Readium project began in early 2012 as a web-based demonstration of EPUB 3, approved as a standard by the International &hellip;" />
   <meta name="og:url" content="http://readium.github.io/Readium-Web-Components/about/history-and-goals.html"/>
   <meta name="url" content="http://readium.github.io/Readium-Web-Components/about/history-and-goals.html">
   
@@ -89,31 +89,43 @@
         
         <h3>Inception and goals</h3>
 
-<p>The <a href="http://readium.org">Readium</a> project began <a href="http://idpf.org/news/readium-open-source-initiative-launched-to-accelerate-adoption-of-epub-3">in early 2012</a> as a web-based demonstration of [EPUB 3 (http://idpf.org/epub/30), approved as a standard by the <a href="http://idpf.org">International Digital Publishing Forum (IDPF)</a> in October, 2011. The initial goal of the project was to produce a simple browser-based &#8220;reference system&#8221; reader application that fully implemented the new specification.</p>
+<p>The <a href="http://readium.org">Readium</a> project began <a href="http://idpf.org/news/readium-open-source-initiative-launched-to-accelerate-adoption-of-epub-3">in early 2012</a> as a web-based demonstration of <a href="http://idpf.org/epub/30">EPUB 3</a>, approved as a standard by the <a href="http://idpf.org">International Digital Publishing Forum (IDPF)</a> in October, 2011. The initial goal of the project was to produce a simple browser-based &#8220;reference system&#8221; reader application that fully implemented the new specification.</p>
 
 <h3>Success! EPUB 3 Reference Implementation</h3>
 
-<p><a href="">Evident Point Software Corp.</a> was contracted by the IDPF to seed development of the reader and run the open-source project, and many organizations and individuals contributed. The iniital deployment is a Google Chrome Packaged App. The packaged-app is a 100% dedicated client-side (browser) solution, allowing users to load, read and save publications in the EPUB format. This Readium application on the <a href="https://chrome.google.com/webstore/detail/empty-title/fepbnnnkkadjhjahcafoaglimekefifl?hl=en-US">Chrome Web Store</a>, now has over 50,000 users. It supports all major EPUB 3 features including fixed layout as well as dynamic pagination of reflow content, media overlays, interactivity, video, audio, global language support, embedded fonts, SVG, etc.</p>
+<p><a href="http://evidentpoint.com/">Evident Point Software Corp.</a> was contracted by the IDPF to seed development of the reader and run the open-source project, and many <a href="https://github.com/readium/readium/contributors">organizations and individuals</a> contributed.</p>
 
-<h3>The next steps</h3>
+<p>The inital deployment was a Google Chrome Packaged App. The packaged-app is a 100% dedicated client-side (browser) solution, allowing users to load, read and save publications in the EPUB format. This application, deployed on the <a href="https://chrome.google.com/webstore/detail/empty-title/fepbnnnkkadjhjahcafoaglimekefifl?hl=en-US">Chrome Web Store</a>, now has over 60,000 users. It supports all major EPUB 3 features including fixed layout as well as dynamic pagination of reflow content, media overlays, interactivity, video, audio, global language support, embedded fonts, SVG, etc.</p>
 
-<p>Having satisfied the &#8220;demonstration&#8221; goals of the original project, it was apparent that support was needed for production-level EPUB 3 deployment both for native apps and browser-based &#8220;cloud&#8221; readers. This need was made more pressing by the lack of EPUB 3 support in the most commonly used embedded EPUB engine, Adobe Reader Mobile SDK (RMSDK), which does not support fixed-layout, interactivity, video, or most other EPUB 3 features..</p>
+<h3>The next steps&#8230;</h3>
+
+<p>Having satisfied the &#8220;demonstration&#8221; goals of the original project, it was apparent that support was needed for production-level EPUB 3 deployment both for native apps and browser-based &#8220;cloud&#8221; readers. This need was made more pressing by the lack of EPUB 3 support in the most commonly used embedded EPUB engine, Adobe Reader Mobile SDK (RMSDK), which does not support fixed-layout, interactivity, video, or most other EPUB 3 features.</p>
 
 <h4>Readium.js: Simple, light-weight, web-focused</h4>
 
-<p>Several organizations created custom variants of the original Readium Chrome Web Application that were completely web-served &#8220;cloud readers&#8221; rather than installed client-side browser extensions, including an experimental implementation by Evident Point and a more production-focused implementation deployed by Benetech as the nucleus of a new browser-based reader for the Benetech Bookshare service. This work led to a desire to refactor the Readium codebase into a set of light-weight components optimized for web-deployed EPUB files and purely browser-based reading. Evident Point Software took the first steps to refactor the original Readium codebased into the new <a href="">Readium.js</a> project, and other organizations including Benetech and DAISY have pledged to contribute to RWC in areas of their expertise, such as accessibility support including screen-reader integration. RWC consists of a set of javascript modules that can be dropped into any new or existing web application, and can be composed to support a variety of different types of application, including the simple use case of deploying one or more EPUB files onto a basic static web server to be consumed in any modern (HTML5) browser. The Chrome Packaged App configuration will continue to be maintained but the primary focus is now cross-browser implementations for reading server-based content.</p>
+<p>Several organizations created custom variants of the original Readium Chrome Web Application that were completely web-served &#8220;cloud readers&#8221; rather than installed client-side browser extensions. This included an experimental implementation by <a href="http://evidentpoint.com/">Evident Point</a> and a more production-focused implementation deployed by Benetech as the nucleus of a new browser-based reader for the <a href="https://www.bookshare.org/">Benetech Bookshare</a> service.</p>
 
-<h4>Readium-SDK: High-performance industrial-strength EPUB 3 for native mobile and desktop apps</h4>
+<h5><em>Readium =%$&amp;*@=> Readium.js!</em></h5>
 
-<p>In parallel with the refactoring of the initial Readium into Readium.js, the <a href="">Readium-SDK</a> project began in early 2013. This project is developing a performant, mobile-focused, industry-strength EPUB 3 SDK (software development kit) with a dual license approach to facilitate commercial adoption. Readium SDK combines a browser engine (e.g. WebKit) with optimized native code libraries that help support various EPUB 3 features and requirements of native apps, and sharing JS-level modules with Readium Web Components as appropriate. Readium SDK configurations and sample apps for iOS (iPhone/iPad), Android, Mac OS/X, and Windows are presently under active development.</p>
+<p>This work led to a desire to redesign and refactor the Readium codebase into a set of light-weight components optimized for web-deployed EPUB files and purely browser-based reading. <a href="http://evidentpoint.com/">Evident Point Software</a> took the first steps to refactor the original Readium codebased into the new <a href="/">Readium.js</a> project, and other organizations including Benetech and DAISY have pledged to contribute to Readium.js in areas of their expertise, such as accessibility support including screen-reader integration.</p>
 
-<h4>Readium Foundation:</h4>
+<h5><em>Readium.js going forward</em></h5>
 
-<p><a href="">Readium Foundation</a> was formed in February 2013 as a non-profit organization to oversee and facilitate development of Readium.js, Readium SDK, and other open source projects that will advance EPUB and the overall Open Web Platform for the needs of digital pubilshing. Over two dozen organizations have already joined Readium Foundation.</p>
+<p>Readium.js consists of a set of <a href="/Readium-Web-Components/get-started/download.html">javascript modules</a> that can be dropped into any new or existing web application, and can be composed to support a variety of different types of application. This includes the simple case of deploying EPUB files onto a basic static web server to be consumed in any modern (HTML5) browser. The Chrome Packaged App configuration will continue to be maintained, but the primary focus is now cross-browser implementations for reading server-based content.</p>
+
+<h4>Readium-SDK: High-performance, industrial-strength, EPUB 3 for native mobile and desktop apps</h4>
+
+<p>In parallel with the beginning of Readium.js, the <a href="http://readium.org/projects/readium-sdk">Readium-SDK</a> project began in early 2013. This project is developing a performant, mobile-focused, industry-strength EPUB 3 SDK (software development kit).</p>
+
+<p>This project has a dual license approach to facilitate commercial adoption. Readium-SDK combines a browser engine (e.g. WebKit) with optimized native code libraries that help support various EPUB 3 features and requirements of native apps. This project will share JS-level modules with Readium.js where appropriate. Readium-SDK configurations and sample apps for iOS (iPhone/iPad), Android, Mac OS/X, and Windows are presently under active development.</p>
+
+<h4>Readium Foundation</h4>
+
+<p><a href="http://readium.org/readium-foundation-announced">Readium Foundation</a> was formed in February 2013 as a non-profit organization to oversee and facilitate development of Readium.js, Readium-SDK, and other open source projects that will advance EPUB and the overall Open Web Platform for the needs of digital pubilshing. Over two dozen organizations have already joined Readium Foundation.</p>
 
 <h3>The future</h3>
 
-<p>The expectation is that Readium SDK and Readium.js will develop in tandem to support the evolving EPUB standard, enabling both high-performance native desktop and mobile applications, and browser-based web applications. Contributors are need for both projects, and organizations building solutions around the EPUB standard are encouraged to consider <a href="http://readium.org/membership">membership in the Readium Foundation</a>.</p>
+<p>The expectation is that Readium-SDK and Readium.js will develop in tandem to support the evolving EPUB standard, enabling both high-performance native desktop and mobile applications, and browser-based web applications. Contributors are needed for both projects, and organizations building solutions around the EPUB standard are encouraged to consider <a href="http://readium.org/membership">membership in the Readium Foundation</a>.</p>
 
         
           <footer>
@@ -157,7 +169,7 @@
     <ul class="recent_posts">
       
         <li>
-          <a href="/Readium-Web-Components/blog/2013/04/26/test-post/">test_post</a>
+          <a href="/Readium-Web-Components/blog/2013/05/29/welcome-to-readium-js/">Welcome to Readium.js</a>
         </li>
       
     </ul>
@@ -172,7 +184,7 @@
 
   </div>
   <div class="span2">
-    <h2>found on</h2>
+    <!-- <h2>found on</h2>
 
 
 
@@ -186,7 +198,7 @@
 
 
 
-
+ -->
   </div>
 </div>
 
@@ -196,7 +208,7 @@
   <div class="container">
     <p class="pull-left">
   <a href="/Readium-Web-Components/">Readium.js</a>
-  - Copyright &copy; 2013 - Justin Hume
+  - Copyright &copy; 2013 - <span>Created by <a href="http://github.com/justinHume">Justin Hume</a>.</span><!-- Justin Hume -->
 </p>
 <p class="pull-right">
   <span>Powered by <a href="http://octopress.org/">Octopress</a>.</span>
