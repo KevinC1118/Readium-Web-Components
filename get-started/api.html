@@ -93,6 +93,26 @@
 
 <p>A list - and example of use - is provided for the custom styles, events and methods of each module.</p>
 
+<h3><a href="#simple-api">SimpleReadium</a></h3>
+
+<p><em>A module that wires together all of Readium.js into one object and exposes a reduced, simplified, API.</em></p>
+
+<ul>
+<li><a href="#simple-init">SimpleRWC</a></li>
+<li><a href="#simple-show-spine-item">showSpineItem</a></li>
+<li><a href="#simple-show-page-by-cfi">showPageByCFI</a></li>
+<li><a href="#simple-show-page-by-element-id">showPageByElementId</a></li>
+<li><a href="#simple-previous-page">previousPage</a></li>
+<li><a href="#simple-next-page">nextPage</a></li>
+<li><a href="#simple-set-font-size">setFontSize</a></li>
+<li><a href="#simple-set-margin">setMargin</a></li>
+<li><a href="#simple-set-theme">setTheme</a></li>
+<li><a href="#simple-set-synthetic-layout">setSyntheticLayout</a></li>
+<li><a href="#simple-set-margin">setMargin</a></li>
+<li><a href="#simple-set-theme">setTheme</a></li>
+</ul>
+
+
 <hr />
 
 <h3><a href="#parser-api">EPUB-Parser</a></h3>
@@ -174,7 +194,7 @@
 
 <h3><a href="#reflowable-api">EPUB-Reflowable</a></h3>
 
-<p><em>Paginates a reflowable EPUB content document and provides an interface.</em></p>
+<p><em>Paginates a reflowable EPUB <a href="http://www.idpf.org/epub/30/spec/epub30-contentdocs.html#sec-overview">content document</a> and provides an interface.</em></p>
 
 <h4>Events</h4>
 
@@ -248,33 +268,276 @@
 
 <hr />
 
-<h3><a href="" title="#epub-cfi">EPUB-CFI</a></h3>
+<h3><a href="#cfi-api">EPUB-CFI</a></h3>
 
 <p><em>De-reference and generate Canonical Fragement Identifiers (CFIs).</em></p>
 
 <h4>Methods</h4>
 
 <ul>
-<li><a href="">new EpubCFIModule()</a></li>
-<li><a href="">getContentDocHref(CFI, packageDocument)</a></li>
-<li><a href="">injectElement(CFI, contentDocument, elementToInject)</a></li>
-<li><a href="">getTargetElement(CFI, contentDocument)</a></li>
-<li><a href="">getTargetElementWithPartialCFI(contentDocumentCFI, contentDocument)</a></li>
-<li><a href="">getTextTerminusInfoWithPartialCFI(contentDocumentCFI, contentDocument)</a></li>
-<li><a href="">generateCharacterOffsetCFIComponent(startTextNode, charOffset)</a></li>
-<li><a href="">generateElementCFIComponent(startElement)</a></li>
-<li><a href="">generatePackageDocumentCFIComponent(contentDocumentName, packageDocument)</a></li>
-<li><a href="">generatePackageDocumentCFIComponentWithSpineIndex(spineIndex, packageDocument)</a></li>
-<li><a href="">generateCompleteCFI(packageDocumentCFIComponent, contentDocumentCFIComponent)</a></li>
-<li><a href="">injectElementAtOffset($textNodeList, textOffset, elementToInject)</a></li>
-<li><a href="">injectRangeElements(rangeCFI, contentDocument, startElementToInject, endElementToInject)</a></li>
-<li><a href="">getRangeTargetElements(rangeCFI, contentDocument)</a></li>
-<li><a href="">generateCharOffsetRangeComponent(rangeStartElement, startOffset, rangeEndElement, endOffset)</a></li>
-<li><a href="">generateElementRangeComponent(rangeStartElement, rangeEndElement)</a></li>
+<li><a href="#epub-cfi">new EpubCFIModule()</a></li>
+<li><a href="#epub-cfi">getContentDocHref(CFI, packageDocument)</a></li>
+<li><a href="#epub-cfi">injectElement(CFI, contentDocument, elementToInject)</a></li>
+<li><a href="#epub-cfi">getTargetElement(CFI, contentDocument)</a></li>
+<li><a href="#epub-cfi">getTargetElementWithPartialCFI(contentDocumentCFI, contentDocument)</a></li>
+<li><a href="#epub-cfi">getTextTerminusInfoWithPartialCFI(contentDocumentCFI, contentDocument)</a></li>
+<li><a href="#epub-cfi">generateCharacterOffsetCFIComponent(startTextNode, charOffset)</a></li>
+<li><a href="#epub-cfi">generateElementCFIComponent(startElement)</a></li>
+<li><a href="#epub-cfi">generatePackageDocumentCFIComponent(contentDocumentName, packageDocument)</a></li>
+<li><a href="#epub-cfi">generatePackageDocumentCFIComponentWithSpineIndex(spineIndex, packageDocument)</a></li>
+<li><a href="#epub-cfi">generateCompleteCFI(packageDocumentCFIComponent, contentDocumentCFIComponent)</a></li>
+<li><a href="#epub-cfi">injectElementAtOffset($textNodeList, textOffset, elementToInject)</a></li>
+<li><a href="#epub-cfi">injectRangeElements(rangeCFI, contentDocument, startElementToInject, endElementToInject)</a></li>
+<li><a href="#epub-cfi">getRangeTargetElements(rangeCFI, contentDocument)</a></li>
+<li><a href="#epub-cfi">generateCharOffsetRangeComponent(rangeStartElement, startOffset, rangeEndElement, endOffset)</a></li>
+<li><a href="#epub-cfi">generateElementRangeComponent(rangeStartElement, rangeEndElement)</a></li>
 </ul>
 
 
 <hr />
+
+<!-- ==========================================================================================================
+        SIMPLEREADIUM API DESCRIPTION
+     ========================================================================================================== -->
+
+
+<p><a id="simple-api"></a></p>
+
+<h2>SimpleReadium.js</h2>
+
+<p><a id="simple-init"></a></p>
+
+<h4>SimpleRWC</h4>
+
+<p>Instantiate a new SimpleReadium object. Use a constructor method invocation.</p>
+
+<p>SimpleReadium requires a DOM element to bind EPUB content to, a url to the EPUB publication <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-package-def">package document</a>, a viewer settings object, the package document XML, and a render strategy.</p>
+
+<p>This is a stateful module. State is the set of arguments, above.</p>
+
+<p>The element to bind must be given a fixed height, for the moment.</p>
+
+<figure class='code'><figcaption><span>new EpubReaderModule(readerBoundElement, epubSpineInfo, viewerSettings, packageDocumentDOM) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">elementToBindTo</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#element-id&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">];</span> <span class="c1">// A DOM element; jquery is not required</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">viewerSettings</span> <span class="o">=</span> <span class="p">{</span>
+</span><span class='line'>            <span class="nx">fontSize</span> <span class="o">:</span> <span class="mi">12</span><span class="p">,</span> <span class="c1">// integer</span>
+</span><span class='line'>            <span class="nx">syntheticLayout</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// boolean</span>
+</span><span class='line'>            <span class="nx">currentMargin</span> <span class="o">:</span> <span class="mi">3</span><span class="p">,</span> <span class="c1">// integer</span>
+</span><span class='line'>            <span class="nx">tocVisible</span> <span class="o">:</span> <span class="kc">false</span><span class="p">,</span> <span class="c1">// boolean</span>
+</span><span class='line'>            <span class="nx">currentTheme</span> <span class="o">:</span> <span class="s2">&quot;default&quot;</span> <span class="c1">// &quot;default&quot;, &quot;vancouver-theme&quot;, &quot;desert-theme&quot;</span>
+</span><span class='line'>        <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">packageDocumentURL</span> <span class="o">=</span> <span class="s2">&quot;path/to/package/package.opf&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">packageDocumentXML</span> <span class="o">=</span> <span class="s2">&quot;&lt;package&gt;...&lt;/package&gt;&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">renderStrategy</span> <span class="o">=</span> <span class="s2">&quot;lazy&quot;</span><span class="p">;</span> <span class="c1">// &quot;lazy&quot; or &quot;eager&quot;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="nx">simpleReadium</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">SimpleRWC</span><span class="p">(</span>
+</span><span class='line'>        <span class="nx">elementToBindTo</span><span class="p">,</span> <span class="nx">viewerSettings</span><span class="p">,</span> <span class="nx">packageDocumentURL</span><span class="p">,</span> <span class="nx">packageDocumentXML</span><span class="p">,</span> <span class="nx">renderStrategy</span>
+</span><span class='line'>    <span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="simple-show-spine-item"></a></p>
+
+<h4>showSpineItem</h4>
+
+<p>Show EPUB content using its index in the spine.</p>
+
+<p>A callback must be supplied, as the content referenced by the spine index may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
+
+<figure class='code'><figcaption><span>showSpineItem(spineIndex) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">spineIndexToShow</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// integer; zero-indexed</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Spine index shown: &quot;</span> <span class="o">+</span> <span class="nx">spineIndexToShow</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">showSpineItem</span><span class="p">(</span><span class="nx">spineIndexToShow</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="simple-show-page-by-cfi"></a></p>
+
+<h4>showPageByCFI</h4>
+
+<p>Show the page on which content indexed by a <a href="http://www.idpf.org/epub/linking/cfi/#sec-epubcfi-def">CFI</a> can be found.</p>
+
+<p>A callback must be supplied, as the content referenced by the CFI may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
+
+<figure class='code'><figcaption><span>showPageByCFI(CFI) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">CFI</span> <span class="o">=</span> <span class="s2">&quot;epubcfi(/2/6!/4/2/10)&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Spine index shown: &quot;</span> <span class="o">+</span> <span class="nx">spineIndexToShow</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">showPageByCFI</span><span class="p">(</span><span class="nx">CFI</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="simple-show-page-by-element-id"></a></p>
+
+<h4>showPageByElementId</h4>
+
+<p>Show the page that contains the element with the specified ID.</p>
+
+<p>The spine index must also be supplied, as each <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-itemref-elem">spine itemref</a> is likely an XHTML document, and the uniqueness of id&#8217;s in the entire EPUB publication is not assured.</p>
+
+<p>A callback must be supplied, as the content referenced by the spine index may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
+
+<figure class='code'><figcaption><span>showPageByElementId(spineIndex, hashFragmentId) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">spineIndexThatContainsTheId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// integer; zero-indexed</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">elementId</span> <span class="o">=</span> <span class="s2">&quot;XML-id&quot;</span><span class="p">;</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Spine index shown: &quot;</span> <span class="o">+</span> <span class="nx">spineIndexToShow</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">showPageByElementId</span><span class="p">(</span><span class="nx">spineIndexThatContainsTheId</span><span class="p">,</span> <span class="nx">elementId</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="simple-next-page"></a></p>
+
+<h4>nextPage</h4>
+
+<p>Show the next page(s) in the EPUB publication.</p>
+
+<p>A callback must be supplied, as the next set of content may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
+
+<figure class='code'><figcaption><span>.nextPage() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;navigated to next page&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">nextPage</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="simple-previous-page"></a></p>
+
+<h4>previousPage</h4>
+
+<p>Show the previous page(s) in the EPUB publication.</p>
+
+<p>A callback must be supplied, as the previous set of content may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
+
+<figure class='code'><figcaption><span>.previousPage() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;navigated to previous page&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">previousPage</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="simple-set-font-size"></a></p>
+
+<h4>setFontSize</h4>
+
+<p>Set the font size for text.</p>
+
+<figure class='code'><figcaption><span>.setFontSize(fontSize) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">fontSize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span> <span class="c1">// integer; 1-indexed</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">setFontSize</span><span class="p">(</span><span class="nx">fontSize</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="simple-set-margin"></a></p>
+
+<h4>setMargin</h4>
+
+<p>Set the margin for each page.</p>
+
+<figure class='code'><figcaption><span>.setMargin(margin) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">margin</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// integer; zero-indexed</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">setMargin</span><span class="p">(</span><span class="nx">margin</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="simple-set-theme"></a></p>
+
+<h4>setTheme</h4>
+
+<p>Set the theme for the XHTML <a href="http://www.idpf.org/epub/30/spec/epub30-contentdocs.html#sec-overview">content document</a>.</p>
+
+<p><em>EXPECTED API CHANGE</em>: The way themes are set will likely be changed to give developers more flexibility over which elements are styled.</p>
+
+<figure class='code'><figcaption><span>.setTheme(theme) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">themeName</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">;</span> <span class="c1">// &quot;default&quot;, &quot;vancouver-theme&quot;, &quot;desert-theme&quot;</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">setTheme</span><span class="p">(</span><span class="nx">themeName</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="simple-set-synthetic-layout"></a></p>
+
+<h4>setSyntheticLayout</h4>
+
+<p>Set SimpleReadium to display a synthetic layout (two pages), or a single-page layout.</p>
+
+<figure class='code'><figcaption><span>.setSyntheticLayout(isSynthetic) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Show a two page layout</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">setSyntheticLayout</span><span class="p">(</span><span class="kc">true</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Show a single page layout </span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">setSyntheticLayout</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
 
 <!-- ==========================================================================================================
         PARSER API DESCRIPTION
@@ -362,7 +625,7 @@
 
 <h4>getSpineInfo</h4>
 
-<p>Get the spine info object. The spine info object contains three arrays: An <em>array of each <a href="">itemref</a></em> in the <a href="">spine</a>, an <em>array of <a href="">bindings</a></em>.</p>
+<p>Get the spine info object. The spine info object contains three arrays: An <em>array of each <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-itemref-elem">itemref</a></em> in the <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-spine-elem">spine</a>, an <em>array of <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-bindings-elem">bindings</a></em>.</p>
 
 <figure class='code'><figcaption><span>.getSpineInfo() </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -382,10 +645,10 @@
 
 <h4>isFixedLayout</h4>
 
-<p>Indicates if the <em>entire</em> EPUB is fixed layout.</p>
+<p>Indicates if the <em>entire</em> EPUB is <a href="http://www.idpf.org/epub/fxl/#overview">fixed layout</a>.</p>
 
-<p>This will only return true if the <a href="">fixed layout meta property</a> is set. If the EPUB
-is mixed (contains both reflowable and fixed layout content documents), or entirely reflowable, this will return false.</p>
+<p>This will only return true if the <a href="http://www.idpf.org/epub/fxl/#property-defs">fixed layout meta properties</a> are set. If the EPUB
+is mixed (contains both reflowable and fixed layout <a href="http://www.idpf.org/epub/30/spec/epub30-contentdocs.html#sec-overview">content documents</a>), or entirely reflowable, this will return false.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -397,7 +660,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>getManifestItemById</h4>
 
-<p>Get a <a href="">manifest item</a> object using it&#8217;s XML id.</p>
+<p>Get a <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-item-elem">manifest item</a> object using it&#8217;s XML id.</p>
 
 <figure class='code'><figcaption><span>.getManifestItemById(id) </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -425,7 +688,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>getManifestItemByIdref</h4>
 
-<p>Get a <a href="">manifest item</a> object by using the <a href="">spine itemref idref</a> that refers to it.</p>
+<p>Get a <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-item-elem">manifest item</a> object by using the <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-itemref-elem">spine itemref idref</a> that refers to it.</p>
 
 <figure class='code'><figcaption><span>.getManifestItemByIdref(idref) </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -453,7 +716,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>getSpineItemByIdref</h4>
 
-<p>Get an <a href="">itemref</a> object by using the itemref&#8217;s idref.</p>
+<p>Get an <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-itemref-elem">itemref</a> object by using the itemref&#8217;s idref.</p>
 
 <p><em>EXPECTED API CHANGE</em>: This method will likely be renamed to getSpineItem<strong><em>ref</em></strong>ByIdref.</p>
 
@@ -481,7 +744,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>getSpineItemByIndex</h4>
 
-<p>Get an <a href="">itemref</a> object by using the itemref&#8217;s index in the package document <a href="">spine</a>.</p>
+<p>Get an <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-itemref-elem">itemref</a> object by using the itemref&#8217;s index in the package document <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-spine-elem">spine</a>.</p>
 
 <p><em>EXPECTED API CHANGE</em>: This method will likely be renamed to getSpineItem<strong><em>ref</em></strong>ByIndex.</p>
 
@@ -509,7 +772,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>getSpineIndexByHref</h4>
 
-<p>Get the spine index of the <a href="">itemref</a> using it&#8217;s associated manifest <a href="">item</a> href.</p>
+<p>Get the spine index of the <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-itemref-elem">itemref</a> using it&#8217;s associated manifest <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-item-elem">item</a> href.</p>
 
 <figure class='code'><figcaption><span>.getSpineIndexByHref(manifestItemHref) </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -524,7 +787,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>spineLength</h4>
 
-<p>Get the number of <a href="">itemrefs</a> in the <a href="">spine</a>.</p>
+<p>Get the number of <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-itemref-elem">itemrefs</a> in the <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-spine-elem">spine</a>.</p>
 
 <p><em>EXPECTED API CHANGE</em>: This method will be renamed to something like <em>getNumberOfItemrefs</em>.</p>
 
@@ -538,7 +801,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>getNextLinearSpinePosition</h4>
 
-<p>Get the index in the spine of the next <a href="">primary</a> spine itemref.</p>
+<p>Get the index in the spine of the next <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#attrdef-itemref-linear">primary</a> spine itemref.</p>
 
 <p><em>EXPECTED API CHANGE</em>: This method will be renamed to something like <em>getNextPrimarySpineIndex</em>. This method may also be changed to actually return the itemref object.</p>
 
@@ -556,7 +819,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>getPrevLinearSpinePosition</h4>
 
-<p>Get the index in the spine of the previous <a href="">primary</a> spine itemref.</p>
+<p>Get the index in the spine of the previous <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#attrdef-itemref-linear">primary</a> spine itemref.</p>
 
 <p><em>EXPECTED API CHANGE</em>: This method will be renamed to something like <em>getPreviousPrimarySpineIndex</em>. This method may also be changed to actually return the itemref object.</p>
 
@@ -574,7 +837,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>hasNextSection</h4>
 
-<p>Indicates if the EPUB has another <a href="">primary</a> itemref.</p>
+<p>Indicates if the EPUB has another <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#attrdef-itemref-linear">primary</a> itemref.</p>
 
 <p><em>EXPECTED API CHANGE</em>: This method will likely be renamed to <em>hasNextItemref</em>.</p>
 
@@ -592,7 +855,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>hasPrevSection</h4>
 
-<p>Indicates if the EPUB has a previous <a href="">primary</a> itemref.</p>
+<p>Indicates if the EPUB has a previous <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#attrdef-itemref-linear">primary</a> itemref.</p>
 
 <p><em>EXPECTED API CHANGE</em>: This method will likely be renamed to <em>hasPreviousItemref</em>.</p>
 
@@ -610,7 +873,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>pageProgressionDirection</h4>
 
-<p>Gets the <a href="">page progression direction</a> of the EPUB.</p>
+<p>Gets the <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#attrdef-spine-page-progression-direction">page progression direction</a> of the EPUB.</p>
 
 <p><em>EXPECTED API CHANGE</em>: This method will be renamed to something like <em>getPageProgressionDirection</em>.</p>
 
@@ -640,7 +903,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>getToc</h4>
 
-<p>Gets the URL of the <a href="">table of contents</a> manifest <a href="">item</a>.</p>
+<p>Gets the URL of the <a href="http://www.idpf.org/epub/30/spec/epub30-contentdocs.html#sec-xhtml-nav">table of contents</a> manifest <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-item-elem">item</a>.</p>
 
 <p><em>EXPECTED API CHANGE</em>: This method will be renamed to something like <em>getTocHref</em>.</p>
 
@@ -667,7 +930,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <p>Instantiate a new reader module. Use a constructor method invocation.</p>
 
-<p>The reader requires a DOM element to bind EPUB content to, the EPUB publication <a href="">spine info</a> object, a viewer settings object, and a <a href="">DOM representation</a> of the package document.</p>
+<p>The reader requires a DOM element to bind EPUB content to, the EPUB publication <a href="">spine info</a> object, a viewer settings object, and a <a href="#getPackageDocumentDOM">DOM representation</a> of the package document.</p>
 
 <p>This is a stateful module. State is the <em>DOM element to bind to</em>, the epub resources referenced by the <em>epub spine info</em> object, and <em>viewer settings</em>.</p>
 
@@ -715,11 +978,11 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>render</h4>
 
-<p>Load and render EPUB publication resources. When render() is called, RWC will inject DOM elements as children of the <a href="">binding element</a> passed on initialization.</p>
+<p>Load and render EPUB publication resources. When render() is called, RWC will inject DOM elements as children of the <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-bindings-elem">binding element</a> passed on initialization.</p>
 
-<p>By default, all EPUB resources will be hidden. A <a href="">show</a> method must be called to display a part of the EPUB publication.</p>
+<p>By default, all EPUB resources will be hidden. A show method must be called to display a part of the EPUB publication.</p>
 
-<p>The EPUB-Reader module will trigger an &#8220;epubLoaded&#8221; event when all the resources of the EPUB are loaded. Use the <a href="">on</a> method to handle the event.</p>
+<p>The EPUB-Reader module will trigger an &#8220;epubLoaded&#8221; event when all the resources of the EPUB are loaded. Use the <a href="#reader-on">on</a> method to handle the event.</p>
 
 <p><em>EXPECTED API CHANGE</em>: Loading and rendering settings, eager vs lazy loading</p>
 
@@ -730,7 +993,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;epubLoaded&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-</span><span class='line'>        <span class="nx">epubReader</span><span class="p">.</span><span class="nx">showSpineItem</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+</span><span class='line'>        <span class="nx">epubReader</span><span class="p">.</span><span class="nx">showSpineItem</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;showed first page&quot;</span><span class="p">);</span> <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
 </span><span class='line'>    <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
 </span><span class='line'>
 </span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">render</span><span class="p">();</span>
@@ -743,11 +1006,21 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <p>Show EPUB content using it&#8217;s index in the spine.</p>
 
+<p>A callback must be supplied, as the content referenced by the spine index may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
+
 <figure class='code'><figcaption><span>showSpineItem(spineIndex) </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">spineIndexToShow</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// integer; zero-indexed</span>
-</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">showSpineItem</span><span class="p">(</span><span class="nx">spineIndexToShow</span><span class="p">);</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Showed spine index: &quot;</span> <span class="o">+</span> <span class="nx">spineIndexToShow</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">showSpineItem</span><span class="p">(</span><span class="nx">spineIndexToShow</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -755,15 +1028,25 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>showPageByCFI</h4>
 
-<p>Show the page on which content indexed by a <a href="">CFI</a> can be found.</p>
+<p>Show the page on which content indexed by a <a href="http://www.idpf.org/epub/linking/cfi/#sec-epubcfi-def">CFI</a> can be found.</p>
+
+<p>A callback must be supplied, as the content referenced by the CFI may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
 
 <figure class='code'><figcaption><span>showPageByCFI(CFI) </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'>
 </span><span class='line'>    <span class="kd">var</span> <span class="nx">CFI</span> <span class="o">=</span> <span class="s2">&quot;epubcfi(/2/6!/4/2/10)&quot;</span><span class="p">;</span>
-</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">showPageByCFI</span><span class="p">(</span><span class="nx">CFI</span><span class="p">);</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Showed page by CFI&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">showPageByCFI</span><span class="p">(</span><span class="nx">CFI</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -775,13 +1058,23 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <p>The spine index must also be supplied, as each spine itemref is likely an XHTML document, and the uniqueness of id&#8217;s in the EPUB publication is not assured.</p>
 
+<p>A callback must be supplied, as the content referenced by the spine index may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
+
 <figure class='code'><figcaption><span>showPageByElementId(spineIndex, hashFragmentId) </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">spineIndexThatContainsTheId</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// integer; zero-indexed</span>
 </span><span class='line'>    <span class="kd">var</span> <span class="nx">elementId</span> <span class="o">=</span> <span class="s2">&quot;XML-id&quot;</span><span class="p">;</span>
-</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">showPageByElementId</span><span class="p">(</span><span class="nx">spineIndexThatContainsTheId</span><span class="p">,</span> <span class="nx">elementId</span><span class="p">);</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Showed element ID&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">showPageByElementId</span><span class="p">(</span><span class="nx">spineIndexThatContainsTheId</span><span class="p">,</span> <span class="nx">elementId</span><span class="p">,</span> <span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -791,9 +1084,19 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <p>Show the next page(s) in the EPUB publication.</p>
 
+<p>A callback must be supplied, as the next set of content may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
+
 <figure class='code'><figcaption><span>.nextPage() </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">nextPage</span><span class="p">();</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;navigated to next page&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">nextPage</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -803,9 +1106,19 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <p>Show the previous page(s) in the EPUB publication.</p>
 
+<p>A callback must be supplied, as the previous set of content may not have been loaded by the browser - this depends on the <a href="">render strategy</a>.</p>
+
 <figure class='code'><figcaption><span>.previousPage() </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">previousPage</span><span class="p">();</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">callback</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;navigated to previous page&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">};</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">callbackContext</span> <span class="o">=</span> <span class="k">this</span><span class="p">;</span>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">previousPage</span><span class="p">(</span><span class="nx">callback</span><span class="p">,</span> <span class="nx">callbackContext</span><span class="p">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -841,7 +1154,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>setTheme</h4>
 
-<p>Set the theme for the XHTML content document.</p>
+<p>Set the theme for the XHTML <a href="http://www.idpf.org/epub/30/spec/epub30-contentdocs.html#sec-overview">content document</a>.</p>
 
 <p><em>EXPECTED API CHANGE</em>: The way themes are set will likely be changed to give developers more flexibility over which elements are styled.</p>
 
@@ -913,7 +1226,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <p>Bind a callback to one of the <a href="">events</a> fired by the reader module. The callback will be invoked whenever the event is triggered.</p>
 
-<p>This method is delegating to the <a href="">backbone.js on(&#8230;)</a> method, so the interface and semantics will conform closely.</p>
+<p>This method is delegating to the <a href="http://backbonejs.org/#Events-on">backbone.js on(&#8230;)</a> method, so the interface and semantics will conform closely.</p>
 
 <figure class='code'><figcaption><span>on(eventName, callback, callbackContext) </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -937,7 +1250,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <p>Remove all callbacks bound to the module object for the given event name.</p>
 
-<p>This method is delegating to the <a href="">backbone.js of(&#8230;)</a> method, so the interface and semantics will conform closely.</p>
+<p>This method is delegating to the <a href="http://backbonejs.org/#Events-off">backbone.js off(&#8230;)</a> method, so the interface and semantics will conform closely.</p>
 
 <figure class='code'><figcaption><span>.off(eventName) </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -984,7 +1297,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <p><a id="reflowable-api"></a></p>
 
-<h3>Reflowable Pages View</h3>
+<h2>Reflowable Pages View</h2>
 
 <p><a id="reflowable-init"></a></p>
 
@@ -992,7 +1305,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <p>Initialize the set of reflowable pages.</p>
 
-<p>This is a stateful module. State is the <em><a href="">content document</a></em>, <em>viewer settings</em>, and <em><a href="">bindings</a></em> for the content document.</p>
+<p>This is a stateful module. State is the <em><a href="http://www.idpf.org/epub/30/spec/epub30-contentdocs.html#sec-overview">content document</a></em>, <em>viewer settings</em>, and <em><a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-bindings-elem">bindings</a></em> for the content document.</p>
 
 <figure class='code'><figcaption><span>.EpubReflowableModule() </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -1046,7 +1359,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>render</h4>
 
-<p>Paginate the <a href="">content document</a>.</p>
+<p>Paginate the <a href="http://www.idpf.org/epub/30/spec/epub30-contentdocs.html#sec-overview">content document</a>.</p>
 
 <p>This method returns a DOM element that must be injected into the DOM for the rendering process to complete. This is because EPUB content is rendered in an iframe, which only fetches and loads once it&#8217;s a part of the DOM.</p>
 
@@ -1130,7 +1443,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>showPageByCFI</h4>
 
-<p>Show the page on which content indexed by a <a href="">CFI</a> can be found.</p>
+<p>Show the page on which content indexed by a <a href="http://www.idpf.org/epub/linking/cfi/#sec-epubcfi-def">CFI</a> can be found.</p>
 
 <figure class='code'><figcaption><span>.showPageByCFI(CFI) </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -1258,7 +1571,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>setTheme</h4>
 
-<p>Set the theme for the XHTML content document.</p>
+<p>Set the theme for the XHTML <a href="http://www.idpf.org/epub/30/spec/epub30-contentdocs.html#sec-overview">content document</a>.</p>
 
 <p><em>EXPECTED API CHANGE</em>: The way themes are set will likely be changed to give developers more flexibility over which elements are styled.</p>
 
@@ -1296,7 +1609,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <p>Bind a callback to one of the <a href="">events</a> fired by the reflowable object. The callback will be invoked whenever the event is triggered.</p>
 
-<p>This method is delegating to the <a href="">backbone.js on(&#8230;)</a> method, so the interface and semantics will conform closely.</p>
+<p>This method is delegating to the <a href="http://backbonejs.org/#Events-on">backbone.js on(&#8230;)</a> method, so the interface and semantics will conform closely.</p>
 
 <figure class='code'><figcaption><span>on(eventName, callback, callbackContext) </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -1320,7 +1633,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <p>Remove all callbacks bound to the module object for the given event name.</p>
 
-<p>This method is delegating to the <a href="">backbone.js of(&#8230;)</a> method, so the interface and semantics will conform closely.</p>
+<p>This method is delegating to the <a href="http://backbonejs.org/#Events-off">backbone.js off(&#8230;)</a> method, so the interface and semantics will conform closely.</p>
 
 <figure class='code'><figcaption><span>.off(eventName) </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -1345,9 +1658,9 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <p>Initialize a set of fixed pages.</p>
 
-<p>This is a stateful module. State is the <em>set of <a href="">fixed layout pages</a></em> passed to the module, and the <em>viewer settings</em>;</p>
+<p>This is a stateful module. State is the <em>set of <a href="http://www.idpf.org/epub/fxl/#overview">fixed layout pages</a></em> passed to the module, and the <em>viewer settings</em>;</p>
 
-<p>The spineObject is an array of objects that contain information about a <a href="">spine itemref</a>. The number of spine objects passed to the module can be anything greater than 1, within system/language limits.</p>
+<p>The spineObject is an array of objects that contain information about a <a href="http://www.idpf.org/epub/30/spec/epub30-publications.html#sec-itemref-elem">spine itemref</a>. The number of spine objects passed to the module can be anything greater than 1, within system/language limits.</p>
 
 <figure class='code'><figcaption><span>.EpubFixedModule(spineObjects, viewerSettingsObject) </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -1433,7 +1746,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>render</h4>
 
-<p>Render and size the <a href="">fixed layout pages</a>.</p>
+<p>Render and size the <a href="http://www.idpf.org/epub/fxl/#overview">fixed layout pages</a>.</p>
 
 <p>This method returns a DOM element that must be injected into the DOM for the rendering process to complete. This is because EPUB content is rendered in an iframe, which only fetches and loads once it&#8217;s a part of the DOM.</p>
 
@@ -1517,7 +1830,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>showPageByCFI</h4>
 
-<p>Show the page on which content indexed by a <a href="">CFI</a> can be found.</p>
+<p>Show the page on which content indexed by a <a href="http://www.idpf.org/epub/linking/cfi/#sec-epubcfi-def">CFI</a> can be found.</p>
 
 <figure class='code'><figcaption><span>.showPageByCFI(CFI) </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -1645,7 +1958,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <h4>setTheme</h4>
 
-<p>Set the theme for the XHTML content document.</p>
+<p>Set the theme for the XHTML <a href="http://www.idpf.org/epub/30/spec/epub30-contentdocs.html#sec-overview">content document</a>.</p>
 
 <p><em>EXPECTED API CHANGE</em>: The way themes are set will likely be changed to give developers more flexibility over which elements are styled.</p>
 
@@ -1683,7 +1996,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <p>Bind a callback to one of the <a href="">events</a> fired by the fixed object. The callback will be invoked whenever the event is triggered.</p>
 
-<p>This method is delegating to the <a href="">backbone.js on(&#8230;)</a> method, so the interface and semantics will conform closely.</p>
+<p>This method is delegating to the <a href="http://backbonejs.org/#Events-on">backbone.js on(&#8230;)</a> method, so the interface and semantics will conform closely.</p>
 
 <figure class='code'><figcaption><span>on(eventName, callback, callbackContext) </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -1707,7 +2020,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 
 <p>Remove all callbacks bound to the module object for the given event name.</p>
 
-<p>This method is delegating to the <a href="">backbone.js of(&#8230;)</a> method, so the interface and semantics will conform closely.</p>
+<p>This method is delegating to the <a href="http://backbonejs.org/#Events-off">backbone.js off(&#8230;)</a> method, so the interface and semantics will conform closely.</p>
 
 <figure class='code'><figcaption><span>.off(eventName) </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -1722,7 +2035,13 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
      ========================================================================================================== -->
 
 
-<h3>EPUB Canonical Fragment Identifiers</h3>
+<p><a id="cfi-api"></a></p>
+
+<h2>EPUB Canonical Fragment Identifiers</h2>
+
+<p><em>Coming soon</em></p>
+
+<p>This module exists, but the API naming is very &#8230; utilitarian. The methods need to be renamed, after which they&#8217;ll be put on here.</p>
 
         
           <footer>
@@ -1804,7 +2123,7 @@ is mixed (contains both reflowable and fixed layout content documents), or entir
 <footer class="footer">
   <div class="container">
     <p class="pull-left">
-  <a href="/Readium-Web-Components/">Readium.js</a>
+  <a href="/Readium-Web-Components/">Readium.js website and blog</a>
   - Copyright &copy; 2013 - <span>Created by <a href="http://github.com/justinHume">Justin Hume</a>.</span><!-- Justin Hume -->
 </p>
 <p class="pull-right">
