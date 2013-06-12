@@ -110,6 +110,7 @@
 <li><a href="#simple-set-synthetic-layout">setSyntheticLayout</a></li>
 <li><a href="#simple-set-margin">setMargin</a></li>
 <li><a href="#simple-set-theme">setTheme</a></li>
+<li><a href="#simple-resize-content">resizeContent</a></li>
 </ul>
 
 
@@ -187,6 +188,7 @@
 <li><a href="#reader-on">on</a></li>
 <li><a href="#reader-off">off</a></li>
 <li><a href="#reader-get-viewer-settings">getViewerSettings</a></li>
+<li><a href="#reader-resize-content">resizeContent</a></li>
 </ul>
 
 
@@ -225,6 +227,7 @@
 <li><a href="#reflowable-set-synthetic-layout">setSyntheticLayout</a></li>
 <li><a href="#reflowable-on">on</a></li>
 <li><a href="#reflowable-off">off</a></li>
+<li><a href="#reflowable-resize-content">resizeContent</a></li>
 </ul>
 
 
@@ -263,6 +266,7 @@
 <li><a href="#fixed-set-synthetic-layout">setSyntheticLayout</a></li>
 <li><a href="#fixed-on">on</a></li>
 <li><a href="#fixed-off">off</a></li>
+<li><a href="#reflowable-resize-content">resizeContent</a></li>
 </ul>
 
 
@@ -534,6 +538,20 @@
 </span><span class='line'>
 </span><span class='line'>    <span class="c1">// Show a single page layout </span>
 </span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">setSyntheticLayout</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="simple-resize-content"></a></p>
+
+<h4>resizeContent</h4>
+
+<p>Resize EPUB content based on the current size of the HTML element container.</p>
+
+<figure class='code'><figcaption><span>.resizeContent() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Resizes content based on the container&#39;s size</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">resizeContent</span><span class="p">();</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -1288,6 +1306,20 @@ is mixed (contains both reflowable and fixed layout <a href="http://www.idpf.org
 </span></code></pre></td></tr></table></div></figure>
 
 
+<p><a id="reader-resize-content"></a></p>
+
+<h4>resizeContent</h4>
+
+<p>Resize EPUB content based on the current size of the HTML element container.</p>
+
+<figure class='code'><figcaption><span>.resizeContent() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Resizes content based on the container&#39;s size</span>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">resizeContent</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 
 
 <!-- ==========================================================================================================
@@ -1638,6 +1670,20 @@ is mixed (contains both reflowable and fixed layout <a href="http://www.idpf.org
 <figure class='code'><figcaption><span>.off(eventName) </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">off</span><span class="p">(</span><span class="s2">&quot;epubLoaded&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="reflowable-resize-content"></a></p>
+
+<h4>resizeContent</h4>
+
+<p>Resize EPUB content based on the current size of the HTML element container.</p>
+
+<figure class='code'><figcaption><span>.resizeContent() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Resizes content based on the container&#39;s size</span>
+</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">resizeContent</span><span class="p">();</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -2028,6 +2074,20 @@ is mixed (contains both reflowable and fixed layout <a href="http://www.idpf.org
 </span></code></pre></td></tr></table></div></figure>
 
 
+<p><a id="fixed-resize-content"></a></p>
+
+<h4>resizeContent</h4>
+
+<p>Resize EPUB content based on the current size of the HTML element container.</p>
+
+<figure class='code'><figcaption><span>.resizeContent() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Resizes content based on the container&#39;s size</span>
+</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">resizeContent</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 
 
 <!-- ==========================================================================================================
@@ -2083,6 +2143,10 @@ is mixed (contains both reflowable and fixed layout <a href="http://www.idpf.org
   <div class="span3">
     <h2>recent posts</h2>
     <ul class="recent_posts">
+      
+        <li>
+          <a href="/Readium-Web-Components/blog/2013/06/09/implementing-reflowable-pagination/">Implementing reflowable pagination</a>
+        </li>
       
         <li>
           <a href="/Readium-Web-Components/blog/2013/05/29/welcome-to-readium-js/">Welcome to Readium.js</a>

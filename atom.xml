@@ -4,7 +4,7 @@
   <title><![CDATA[Readium.js]]></title>
   <link href="http://readium.github.io/Readium-Web-Components/atom.xml" rel="self"/>
   <link href="http://readium.github.io/Readium-Web-Components/"/>
-  <updated>2013-05-31T10:11:14-07:00</updated>
+  <updated>2013-06-12T15:21:43-07:00</updated>
   <id>http://readium.github.io/Readium-Web-Components/</id>
   <author>
     <name><![CDATA[Justin Hume]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Implementing reflowable pagination]]></title>
+    <link href="http://readium.github.io/Readium-Web-Components/blog/2013/06/09/implementing-reflowable-pagination/"/>
+    <updated>2013-06-09T18:46:00-07:00</updated>
+    <id>http://readium.github.io/Readium-Web-Components/blog/2013/06/09/implementing-reflowable-pagination</id>
+    <content type="html"><![CDATA[<p>This post is about how reflowable pagination is implemented in Readium.js.</p>
+
+<h2></h2>
+
+<p>An issue was opened in the Readium.js <a href="">issue tracker</a> about how reflowable pagination is implemented. This is a question that comes up every now and at one point I wrote up a basic example of how you can get HTML content to flow into either a single or side-by-side &#8220;page&#8221; layout. Since it has now come up again, I thought I&#8217;d make this example public and describe it in more detail.</p>
+
+<h2>What is <em>reflowable</em> pagination?</h2>
+
+<p>http://en.wikipedia.org/wiki/Responsive_web_design</p>
+
+<p><a href="http://www.idpf.org/epub/30/spec/epub30-overview.html#sec-rendering"></a></p>
+
+<p>Before we begin, you can get you the source for this example <a href="">here</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Welcome to Readium.js]]></title>

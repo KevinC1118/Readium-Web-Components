@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Readium.js development - Readium.js</title>
+  <title>Implementing reflowable pagination - Readium.js</title>
   <meta name="author" content="Justin Hume">
   <link rel="author" href="humans.txt">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
@@ -13,7 +13,7 @@
   
     
   
-  <meta name="description" content="This post discusses Readium.js development priorities up to now, as well as how you can get involved with the project. Motivation Readium.js is &hellip;">
+  <meta name="description" content="This post is about how reflowable pagination is implemented in Readium.js. An issue was opened in the Readium.js issue tracker about how reflowable &hellip;">
   
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -21,17 +21,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://readium.github.io/Readium-Web-Components/blog/2013/05/28/readium-js-development/">
+  <link rel="canonical" href="http://readium.github.io/Readium-Web-Components/blog/2013/06/09/implementing-reflowable-pagination/">
   <link href="/Readium-Web-Components/favicon.png" rel="icon">
   <link href='http://fonts.googleapis.com/css?family=Cantarell' rel='stylesheet' type='text/css'>
   <link href="/Readium-Web-Components/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/Readium-Web-Components/atom.xml" rel="alternate" title="Readium.js" type="application/atom+xml">
   <meta name="og:type" content="website" />
   <meta name="og:site_name" content="Readium.js" />
-  <meta name="og:title" content="Readium.js development" />
-  <meta name="og:description" content="This post discusses Readium.js development priorities up to now, as well as how you can get involved with the project. Motivation Readium.js is &hellip;" />
-  <meta name="og:url" content="http://readium.github.io/Readium-Web-Components/blog/2013/05/28/readium-js-development/"/>
-  <meta name="url" content="http://readium.github.io/Readium-Web-Components/blog/2013/05/28/readium-js-development/">
+  <meta name="og:title" content="Implementing reflowable pagination" />
+  <meta name="og:description" content="This post is about how reflowable pagination is implemented in Readium.js. An issue was opened in the Readium.js issue tracker about how reflowable &hellip;" />
+  <meta name="og:url" content="http://readium.github.io/Readium-Web-Components/blog/2013/06/09/implementing-reflowable-pagination/"/>
+  <meta name="url" content="http://readium.github.io/Readium-Web-Components/blog/2013/06/09/implementing-reflowable-pagination/">
   
   <meta name="subject" content=""/>
   <meta name="category" content=""/>
@@ -76,7 +76,7 @@
 
   <header>
     
-      <h1 class="entry-title">Readium.js Development</h1>
+      <h1 class="entry-title">Implementing Reflowable Pagination</h1>
     
     
       <p class="meta">
@@ -85,7 +85,7 @@
 
 
   
-    <span class="byline author vcard">by <span class="fn"><a href="http://github.com/justinHume">Justin Hume</a></span></span>
+    <span class="byline author vcard">by <span class="fn">Justin Hume</span></span>
   
 
  - 
@@ -101,7 +101,7 @@
   
 
 
-<time datetime="2013-05-28T13:48:00-07:00" pubdate data-updated="true">May 28<span>th</span>, 2013</time> - 
+<time datetime="2013-06-09T18:46:00-07:00" pubdate data-updated="true">Jun 9<span>th</span>, 2013</time> - 
         
 
 
@@ -111,43 +111,19 @@
   </header>
 
 
-  <div class="entry-content"><p>This post discusses Readium.js development priorities up to now, as well as how you can get involved with the project.</p>
+  <div class="entry-content"><p>This post is about how reflowable pagination is implemented in Readium.js.</p>
 
-<h2>Motivation</h2>
+<h2></h2>
 
-<p>Readium.js is designed as a set of modular javascript components <!--more-->that can be used <a href="/Readium-Web-Components/get-started/download.html#simple-download">together</a> to embed EPUB publications in a web application, or <a href="/Readium-Web-Components/get-started/download.html#readium-js-download">independently</a> to build custom web applications with EPUB support.</p>
+<p>An issue was opened in the Readium.js <a href="">issue tracker</a> about how reflowable pagination is implemented. This is a question that comes up every now and at one point I wrote up a basic example of how you can get HTML content to flow into either a single or side-by-side &#8220;page&#8221; layout. Since it has now come up again, I thought I&#8217;d make this example public and describe it in more detail.</p>
 
-<h4>Fix things that are painful</h4>
+<h2>What is <em>reflowable</em> pagination?</h2>
 
-<p>When a developer is looking for projects, it&#8217;s not uncommon to hear the suggestion that they work on a pain point. At <a href="http://evidentpoint.com">Evident Point</a>, I&#8217;ve been involved in building a number of web-based EPUB 3 readers. The original <a href="http://github.com/readium/readium">Readium</a> project often served as a template for these efforts.</p>
+<p>http://en.wikipedia.org/wiki/Responsive_web_design</p>
 
-<p>While the original Readium provided a good demonstration of an EPUB 3 reader, I (and others, I believe) found it quite painful as developers to adapt the source to projects that were new, custom, or had more stringent requirements for performance, features etc.</p>
+<p><a href="http://www.idpf.org/epub/30/spec/epub30-overview.html#sec-rendering"></a></p>
 
-<p>By designing the Readium.js library it was my hope that Readium.js could, in typically-modern-web-javascript fashion, make it painless for developers to build a whole variety of web-based EPUB applications.</p>
-
-<h4>Keep improving</h4>
-
-<p>It&#8217;s also my hope that from here we can build a community around Readium.js to get the <a href="/Readium-Web-Components/get-started/api.html">API</a> right, build in additional features and improve digital publishing on the web.</p>
-
-<p>The original Readium project was successful due to the <a href="https://github.com/readium/readium/issues">involvement</a> of a <a href="https://github.com/readium/readium/contributors">community</a>. Much of Readium.js is built on the contributions of this community - either code, wisdom, or lessons learned. I hope this can continue.</p>
-
-<h2>Development Priorities</h2>
-
-<p>During the development of Readium.js, I prioritized the things engineers like: The API design, a reasonable standard of engineering and solid documentation.</p>
-
-<p>I felt it was important to get to a point where community members could reason about the design of the library and API, test the library, and get involved with the source code. I think getting the library &#8216;right&#8217; will depend on early feeback and iteration.</p>
-
-<h4>Someone get the polish&#8230;</h4>
-
-<p>As a result of this priority, some EPUB 3 feature support was lost in the design and refactoring. Getting these features back is in some cases just a matter of &#8220;turning&#8221; them back on. In some cases, it&#8217;ll be a bit more work. However, I think Readium.js will be back up to feature-completeness pretty quickly.</p>
-
-<h2>How you can help</h2>
-
-<p>I think Readium.js has some decent abstractions, encapsulation and documentation (in addition to some&#8230; rough naming), so the <a href="http://github.com/readium/Readium-Web-Components">code base</a> should be fairly accessible for contributors. I&#8217;ll also be able to help point you to where and how you can tackle certain things. Feedback and <a href="http://github.com/readium/Readium-Web-Components/issues">issue reports</a> are also very welcome.</p>
-
-<p>If you know of something you&#8217;d like to contribute, feel free to get in touch (justinh@evidentpoint.com). If you&#8217;re looking for something (small or large) to contribute, you can choose from a list of things that need doing.</p>
-
-<p>I hope you get involved.</p>
+<p>Before we begin, you can get you the source for this example <a href="">here</a>.</p>
 </div>
 
 
@@ -158,7 +134,7 @@
 
 
   
-    <span class="byline author vcard">by <span class="fn"><a href="http://github.com/justinHume">Justin Hume</a></span></span>
+    <span class="byline author vcard">by <span class="fn">Justin Hume</span></span>
   
 
 
@@ -174,7 +150,7 @@
   
 
 
-<time datetime="2013-05-28T13:48:00-07:00" pubdate data-updated="true">May 28<span>th</span>, 2013</time>
+<time datetime="2013-06-09T18:46:00-07:00" pubdate data-updated="true">Jun 9<span>th</span>, 2013</time>
       
 
 
@@ -194,8 +170,8 @@
 
     
     
+      <a class="pull-left" href="/blog/2013/05/29/welcome-to-readium-js/" title="Previous Post: Welcome to Readium.js">&laquo; Welcome to Readium.js</a>
     
-      <a class="pull-right" href="/blog/2013/05/29/welcome-to-readium-js/" title="Next Post: Welcome to Readium.js">Welcome to Readium.js &raquo;</a>
     
   </footer>
 
