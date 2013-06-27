@@ -4,7 +4,7 @@
   <title><![CDATA[Readium.js]]></title>
   <link href="http://readium.github.io/Readium-Web-Components/atom.xml" rel="self"/>
   <link href="http://readium.github.io/Readium-Web-Components/"/>
-  <updated>2013-06-27T16:45:58-07:00</updated>
+  <updated>2013-06-27T16:54:05-07:00</updated>
   <id>http://readium.github.io/Readium-Web-Components/</id>
   <author>
     <name><![CDATA[Justin Hume]]></name>
@@ -65,9 +65,9 @@
 
 <h2>The Readium.js API</h2>
 
-<h3>API Structure</h3>
-
 <p>Readium.js enables the embedding of an EPUB content viewer in a variety of different web applications. As you might expect, the surrounding application will need to call methods on the viewer directly, listen for interesting events triggered by changes in the viewer&#8217;s state, and customize visual aspects of the viewer and EPUB content.</p>
+
+<h3>API Structure</h3>
 
 <p>When I talk about the <em>structure</em> of the API, I mean that the API has three major structural components that allow users to:</p>
 
