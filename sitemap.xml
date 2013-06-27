@@ -13,6 +13,16 @@
         <lastmod>2013-05-29T15:47:20-07:00</lastmod>
     </url>
     <url>
+        <loc>
+            http://readium.github.io/Readium-Web-Components/blog/2013/06/27/changes-to-the-api/
+        </loc>
+        <lastmod>2013-06-27T16:45:49-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://readium.github.io/Readium-Web-Components/blog/2013/06/27/roadmap/</loc>
+        <lastmod>2013-06-27T16:45:49-07:00</lastmod>
+    </url>
+    <url>
         <loc>http://readium.github.io/Readium-Web-Components/about/history-and-goals.html</loc>
         <lastmod>2013-06-12T15:19:04-07:00</lastmod>
     </url>
@@ -26,15 +36,15 @@
     </url>
     <url>
         <loc>http://readium.github.io/Readium-Web-Components/blog/archives/</loc>
-        <lastmod>2013-05-30T12:52:37-07:00</lastmod>
+        <lastmod>2013-06-27T16:45:49-07:00</lastmod>
     </url>
     <url>
         <loc>http://readium.github.io/Readium-Web-Components/get-started/api.html</loc>
-        <lastmod>2013-06-12T14:30:09-07:00</lastmod>
+        <lastmod>2013-06-27T16:45:50-07:00</lastmod>
     </url>
     <url>
         <loc>http://readium.github.io/Readium-Web-Components/get-started/download.html</loc>
-        <lastmod>2013-06-12T15:18:52-07:00</lastmod>
+        <lastmod>2013-06-27T16:45:50-07:00</lastmod>
     </url>
     <url>
         <loc>http://readium.github.io/Readium-Web-Components/get-started/use-it.html</loc>
@@ -42,7 +52,7 @@
     </url>
     <url>
         <loc>http://readium.github.io/Readium-Web-Components/</loc>
-        <lastmod>2013-05-30T12:52:37-07:00</lastmod>
+        <lastmod>2013-06-27T16:45:49-07:00</lastmod>
     </url>
     <url>
         <loc>http://readium.github.io/Readium-Web-Components/search.html</loc>

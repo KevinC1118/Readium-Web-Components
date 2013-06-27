@@ -97,6 +97,42 @@
 
 <p><em>A module that wires together all of Readium.js into one object and exposes a reduced, simplified, API.</em></p>
 
+<h4><a href="#simple-events-example">Events</a></h4>
+
+<ul>
+<li><a href="#simple-epub-loaded">epubLoaded</a></li>
+<li><a href="#simple-at-next-page">atNextPage</a></li>
+<li><a href="#simple-at-previous-page">atPreviousPage</a></li>
+<li><a href="#simple-at-first-page">atFirstPage</a></li>
+<li><a href="#simple-at-last-page">atLastPage</a></li>
+<li><a href="#simple-epub-link-clicked">epubLinkClicked</a></li>
+<li><a href="#simple-layout-changed">layoutChanged</a></li>
+<li><a href="#simple-displayed-content-changed">displayedContentChanged</a></li>
+</ul>
+
+
+<h4><a href="#simple-custom-styles-example">Customizable styles</a></h4>
+
+<ul>
+<li><a href="#simple-epub-border">epub-border</a></li>
+<li><a href="#simple-spine-divider">spine-divider</a></li>
+<li><a href="#simple-page-border">page-border</a></li>
+<li><a href="#simple-margin">margin</a></li>
+<li><a href="#simple-font-size">fontSize</a></li>
+<li><a href="#simple-reflowable-epub-border">reflowable-epub-border</a></li>
+<li><a href="#simple-reflowable-spine-divider">reflowable-spine-divider</a></li>
+<li><a href="#simple-reflowable-page-border">reflowable-page-border</a></li>
+<li><a href="#simple-reflowable-page-theme">reflowable-page-theme</a></li>
+<li><a href="#simple-epub-border">fixed-epub-border</a></li>
+<li><a href="#simple-spine-divider">fixed-spine-divider</a></li>
+<li><a href="#simple-page-border">fixed-page-border</a></li>
+<li><a href="#simple-page-border-left">fixed-page-border-left</a></li>
+<li><a href="#simple-page-border-right">fixed-page-border-right</a></li>
+</ul>
+
+
+<h4>Methods</h4>
+
 <ul>
 <li><a href="#simple-init">SimpleRWC</a></li>
 <li><a href="#simple-show-spine-item">showSpineItem</a></li>
@@ -104,13 +140,11 @@
 <li><a href="#simple-show-page-by-element-id">showPageByElementId</a></li>
 <li><a href="#simple-previous-page">previousPage</a></li>
 <li><a href="#simple-next-page">nextPage</a></li>
-<li><a href="#simple-set-font-size">setFontSize</a></li>
-<li><a href="#simple-set-margin">setMargin</a></li>
-<li><a href="#simple-set-theme">setTheme</a></li>
 <li><a href="#simple-set-synthetic-layout">setSyntheticLayout</a></li>
 <li><a href="#simple-set-margin">setMargin</a></li>
 <li><a href="#simple-set-theme">setTheme</a></li>
 <li><a href="#simple-resize-content">resizeContent</a></li>
+<li><a href="#simple-customize">customize</a></li>
 </ul>
 
 
@@ -162,10 +196,37 @@
 
 <p><em>Manage the loading, rendering and interaction with EPUB 3.0 content.</em></p>
 
-<h4>Events</h4>
+<h4><a href="#reader-events-example">Events</a></h4>
 
 <ul>
-<li><a href="">epubLoaded</a></li>
+<li><a href="#reader-epub-loaded">epubLoaded</a></li>
+<li><a href="#reader-at-next-page">atNextPage</a></li>
+<li><a href="#reader-at-previous-page">atPreviousPage</a></li>
+<li><a href="#reader-at-first-page">atFirstPage</a></li>
+<li><a href="#reader-at-last-page">atLastPage</a></li>
+<li><a href="#reader-epub-link-clicked">epubLinkClicked</a></li>
+<li><a href="#reader-layout-changed">layoutChanged</a></li>
+<li><a href="#reader-displayed-content-changed">displayedContentChanged</a></li>
+</ul>
+
+
+<h4><a href="#reader-custom-styles-example">Customizable styles</a></h4>
+
+<ul>
+<li><a href="#reader-epub-border">epub-border</a></li>
+<li><a href="#reader-spine-divider">spine-divider</a></li>
+<li><a href="#reader-page-border">page-border</a></li>
+<li><a href="#reader-margin">margin</a></li>
+<li><a href="#reader-font-size">fontSize</a></li>
+<li><a href="#reader-epub-border">reflowable-epub-border</a></li>
+<li><a href="#reader-spine-divider">reflowable-spine-divider</a></li>
+<li><a href="#reader-page-border">reflowable-page-border</a></li>
+<li><a href="#reader-page-theme">reflowable-page-theme</a></li>
+<li><a href="#reader-epub-border">fixed-epub-border</a></li>
+<li><a href="#reader-spine-border">fixed-spine-divider</a></li>
+<li><a href="#reader-page-border">fixed-page-border</a></li>
+<li><a href="#reader-page-border-left">fixed-page-border-left</a></li>
+<li><a href="#reader-page-border-right">fixed-page-border-right</a></li>
 </ul>
 
 
@@ -179,9 +240,6 @@
 <li><a href="#reader-show-page-by-element-id">showPageByElementId</a></li>
 <li><a href="#reader-next-page">nextPage</a></li>
 <li><a href="#reader-previous-page">previousPage</a></li>
-<li><a href="#reader-set-font-size">setFontSize</a></li>
-<li><a href="#reader-set-margin">setMargin</a></li>
-<li><a href="#reader-set-theme">setTheme</a></li>
 <li><a href="#reader-set-synthetic-layout">setSyntheticLayout</a></li>
 <li><a href="#reader-get-number-of-pages">getNumberOfPages</a></li>
 <li><a href="#reader-get-current-page">getCurrentPage</a></li>
@@ -189,6 +247,7 @@
 <li><a href="#reader-off">off</a></li>
 <li><a href="#reader-get-viewer-settings">getViewerSettings</a></li>
 <li><a href="#reader-resize-content">resizeContent</a></li>
+<li><a href="#reader-customize">customize</a></li>
 </ul>
 
 
@@ -198,10 +257,32 @@
 
 <p><em>Paginates a reflowable EPUB <a href="http://www.idpf.org/epub/30/spec/epub30-contentdocs.html#sec-overview">content document</a> and provides an interface.</em></p>
 
-<h4>Events</h4>
+<h4><a href="#reflowable-events-example">Events</a></h4>
 
 <ul>
-<li><a href="">contentDocumentLoaded</a></li>
+<li><a href="#reflowable-epub-loaded">epubLoaded</a></li>
+<li><a href="#reflowable-at-next-page">atNextPage</a></li>
+<li><a href="#reflowable-at-previous-page">atPreviousPage</a></li>
+<li><a href="#reflowable-at-first-page">atFirstPage</a></li>
+<li><a href="#reflowable-at-last-page">atLastPage</a></li>
+<li><a href="#reflowable-epub-link-clicked">epubLinkClicked</a></li>
+<li><a href="#reflowable-layout-changed">layoutChanged</a></li>
+<li><a href="#reflowable-displayed-content-changed">displayedContentChanged</a></li>
+</ul>
+
+
+<h4><a href="#reflowable-custom-styles-example">Customizable styles</a></h4>
+
+<ul>
+<li><a href="#reflowable-epub-border">epub-border</a></li>
+<li><a href="#reflowable-spine-divider">spine-divider</a></li>
+<li><a href="#reflowable-page-border">page-border</a></li>
+<li><a href="#reflowable-margin">margin</a></li>
+<li><a href="#reflowable-font-size">fontSize</a></li>
+<li><a href="#reflowable-reflowable-epub-border">reflowable-epub-border</a></li>
+<li><a href="#reflowable-reflowable-spine-divider">reflowable-spine-divider</a></li>
+<li><a href="#reflowable-reflowable-page-border">reflowable-page-border</a></li>
+<li><a href="#reflowable-reflowable-page-theme">reflowable-page-theme</a></li>
 </ul>
 
 
@@ -221,13 +302,11 @@
 <li><a href="#reflowable-hide-pages-view">hidePagesView</a></li>
 <li><a href="#reflowable-number-of-pages">numberOfPages</a></li>
 <li><a href="#reflowable-current-page">currentPage</a></li>
-<li><a href="#reflowable-set-font-size">setFontSize</a></li>
-<li><a href="#reflowable-set-margin">setMargin</a></li>
-<li><a href="#reflowable-set-theme">setTheme</a></li>
 <li><a href="#reflowable-set-synthetic-layout">setSyntheticLayout</a></li>
 <li><a href="#reflowable-on">on</a></li>
 <li><a href="#reflowable-off">off</a></li>
 <li><a href="#reflowable-resize-content">resizeContent</a></li>
+<li><a href="#reflowable-customize">customize</a></li>
 </ul>
 
 
@@ -235,12 +314,33 @@
 
 <h3><a href="#fixed-api">EPUB-Fixed</a></h3>
 
-<p><em>Load and render a set of fixed layout pages, and provides an interface for them.</em></p>
+<p><em>Loads and renders a set of fixed layout pages, and provides an interface for them.</em></p>
 
-<h4>Events</h4>
+<h4><a href="#fixed-events-example">Events</a></h4>
 
 <ul>
-<li><a href="">contentDocumentLoaded</a></li>
+<li><a href="#fixed-epub-loaded">epubLoaded</a></li>
+<li><a href="#fixed-at-next-page">atNextPage</a></li>
+<li><a href="#fixed-at-previous-page">atPreviousPage</a></li>
+<li><a href="#fixed-at-first-page">atFirstPage</a></li>
+<li><a href="#fixed-at-last-page">atLastPage</a></li>
+<li><a href="#fixed-epub-link-clicked">epubLinkClicked</a></li>
+<li><a href="#fixed-layout-changed">layoutChanged</a></li>
+<li><a href="#fixed-displayed-content-changed">displayedContentChanged</a></li>
+</ul>
+
+
+<h4><a href="#fixed-custom-styles-example">Customizable styles</a></h4>
+
+<ul>
+<li><a href="#fixed-epub-border">epub-border</a></li>
+<li><a href="#fixed-spine-divider">spine-divider</a></li>
+<li><a href="#fixed-page-border">page-border</a></li>
+<li><a href="#fixed-fixed-epub-border">fixed-epub-border</a></li>
+<li><a href="#fixed-fixed-spine-divider">fixed-spine-divider</a></li>
+<li><a href="#fixed-fixed-page-border">fixed-page-border</a></li>
+<li><a href="#fixed-fixed-page-border-left">fixed-page-border-left</a></li>
+<li><a href="#fixed-fixed-page-border-right">fixed-page-border-right</a></li>
 </ul>
 
 
@@ -260,13 +360,11 @@
 <li><a href="#fixed-hide-pages-view">hidePagesView</a></li>
 <li><a href="#fixed-number-of-pages">numberOfPages</a></li>
 <li><a href="#fixed-current-page">currentPage</a></li>
-<li><a href="#fixed-set-font-size">setFontSize</a></li>
-<li><a href="#fixed-set-margin">setMargin</a></li>
-<li><a href="#fixed-set-theme">setTheme</a></li>
 <li><a href="#fixed-set-synthetic-layout">setSyntheticLayout</a></li>
 <li><a href="#fixed-on">on</a></li>
 <li><a href="#fixed-off">off</a></li>
-<li><a href="#reflowable-resize-content">resizeContent</a></li>
+<li><a href="#fixed-resize-content">resizeContent</a></li>
+<li><a href="#fixed-customize">customize</a></li>
 </ul>
 
 
@@ -308,6 +406,247 @@
 <p><a id="simple-api"></a></p>
 
 <h2>SimpleReadium.js</h2>
+
+<p><a id="simple-events-example"></a></p>
+
+<h3>Events</h3>
+
+<p>Handlers for each of the events triggered by SimpleReadium can set, as follows:</p>
+
+<figure class='code'><figcaption><span>.on() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;eventName&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Something is done when: eventName is triggered&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Refer to the <a href="#reader-on">on</a> API documentation for the method definition.</p>
+
+<p><a id="simple-epub-loaded"></a></p>
+
+<h4>epubLoaded</h4>
+
+<p>A <em>specified</em> set of EPUB resources have completed rendering.</p>
+
+<p>The specified set of resources depends on the rendering strategy. For example, if a lazy rendering strategy is used the epubLoaded event will be triggered when a single content document has completed rendering.</p>
+
+<p><a id="simple-at-next-page"></a></p>
+
+<h4>atNextPage</h4>
+
+<p>The reader has rendered the next page in the reading order.</p>
+
+<p><a id="simple-at-previous-page"></a></p>
+
+<h4>atPreviousPage</h4>
+
+<p>The reader has rendered the previous page in the reading order.</p>
+
+<p><a id="simple-at-first-page"></a></p>
+
+<h4>atFirstPage</h4>
+
+<p>The reader has reached the first page in the EPUB publication.</p>
+
+<p><a id="simple-at-last-page"></a></p>
+
+<h4>atLastPage</h4>
+
+<p>The reader has reached the last page in the EPUB publication.</p>
+
+<p><a id="simple-epub-link-clicked"></a></p>
+
+<h4>epubLinkClicked</h4>
+
+<p>A link <em>within</em> a content document has been clicked.</p>
+
+<p><a id="simple-layout-changed"></a></p>
+
+<h4>layoutChanged</h4>
+
+<p>The layout has been changed from single-page to a two-page spread, or vice-versa.</p>
+
+<p><a id="simple-displayed-content-changed"></a></p>
+
+<h4>displayedContentChanged</h4>
+
+<p>The displayed content has changed, for any reason. This event will be triggered on page changes,
+repagination, resizing, etc.</p>
+
+<p><a id="simple-custom-styles-example"></a></p>
+
+<h3>Customizable styles</h3>
+
+<p>Custom styles can be set as follows:</p>
+
+<figure class='code'><figcaption><span>.customize() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Setting a default custom style provided with the library</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;customStyleName&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Setting a default custom style with CSS</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;customStyleName&quot;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;border-style&quot;</span> <span class="o">:</span> <span class="s2">&quot;solid&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;border-color&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Styles can also be chained</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;spine-divider&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-left&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-right&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Refer to the API documentation of <a href="#simple-customize">customize</a> for the method definition.</p>
+
+<p><a id="simple-epub-border"></a></p>
+
+<h4>epub-border</h4>
+
+<p>A border that bounds the visible pages, for both fixed and reflowable content documents.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-spine-divider"></a></p>
+
+<h4>spine-divider</h4>
+
+<p>The spine divider shown in a two-page spread, for both fixed and reflowable content documents.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-page-border"></a></p>
+
+<h4>page-border</h4>
+
+<p>The border of each visible page, for both fixed and reflowable content documents. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-margin"></a></p>
+
+<h4>margin</h4>
+
+<p>The margin from the edge of the embedded reading container to the beginning of text. For reflowable content documents only, at the moment.</p>
+
+<p>This custom style takes the place of the setMargin() method, so at present it only accepts integers in string format: &#8220;1&#8221;, &#8220;2&#8221;..etc.</p>
+
+<p><em>Defaults</em>:
+&#8220;1&#8221;, &#8230;, &#8220;5&#8221;</p>
+
+<p><a id="simple-font-size"></a></p>
+
+<h4>fontSize</h4>
+
+<p>Sets the font size for reflowable content documents only.</p>
+
+<p>This custom style takes the place of the setFontSize() method, so at present it only accepts integers in string format: &#8220;1&#8221;, &#8220;2&#8221;..etc.</p>
+
+<p><em>Defaults</em>:
+&#8220;1&#8221;, &#8230;, &#8220;20&#8221;</p>
+
+<p><a id="simple-reflowable-epub-border"></a></p>
+
+<h4>reflowable-epub-border</h4>
+
+<p>A border that bounds visible pages in a reflowable content document.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-reflowable-spine-divider"></a></p>
+
+<h4>reflowable-spine-divider</h4>
+
+<p>A spine divider shown in a two-page spread in a reflowable content document.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-reflowable-page-border"></a></p>
+
+<h4>reflowable-page-border</h4>
+
+<p>The border of each visible page, for reflowable content documents. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-reflowable-page-theme"></a></p>
+
+<h4>reflowable-page-theme</h4>
+
+<p>This custom style replaces the setTheme() method, and is used to provide a &#8220;theme&#8221; for reflowable content documents. Essentially, this can be any styling of the content document itself.</p>
+
+<p><em>Defaults</em>:
+&#8220;night&#8221;, &#8220;vancouver&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-epub-border"></a></p>
+
+<h4>fixed-epub-border</h4>
+
+<p>A border that bounds visible pages for fixed content.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-spine-divider"></a></p>
+
+<h4>fixed-spine-divider</h4>
+
+<p>A spine divider shown in a two-page spread for fixed content.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-page-border"></a></p>
+
+<h4>fixed-page-border</h4>
+
+<p>The border of each visible page, for fixed content documents. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-page-border-left"></a></p>
+
+<h4>fixed-page-border-left</h4>
+
+<p>The border of each visible page that has a page-spread property value of &#8220;left,&#8221; for fixed content. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="simple-page-border-right"></a></p>
+
+<h4>fixed-page-border-right</h4>
+
+<p>The border of each visible page that has a page-spread property value of &#8220;right,&#8221; for fixed content. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<h3>Methods</h3>
 
 <p><a id="simple-init"></a></p>
 
@@ -477,50 +816,6 @@
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><a id="simple-set-font-size"></a></p>
-
-<h4>setFontSize</h4>
-
-<p>Set the font size for text.</p>
-
-<figure class='code'><figcaption><span>.setFontSize(fontSize) </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">fontSize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span> <span class="c1">// integer; 1-indexed</span>
-</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">setFontSize</span><span class="p">(</span><span class="nx">fontSize</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><a id="simple-set-margin"></a></p>
-
-<h4>setMargin</h4>
-
-<p>Set the margin for each page.</p>
-
-<figure class='code'><figcaption><span>.setMargin(margin) </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">margin</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// integer; zero-indexed</span>
-</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">setMargin</span><span class="p">(</span><span class="nx">margin</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><a id="simple-set-theme"></a></p>
-
-<h4>setTheme</h4>
-
-<p>Set the theme for the XHTML <a href="http://www.idpf.org/epub/30/spec/epub30-contentdocs.html#sec-overview">content document</a>.</p>
-
-<p><em>EXPECTED API CHANGE</em>: The way themes are set will likely be changed to give developers more flexibility over which elements are styled.</p>
-
-<figure class='code'><figcaption><span>.setTheme(theme) </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">themeName</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">;</span> <span class="c1">// &quot;default&quot;, &quot;vancouver-theme&quot;, &quot;desert-theme&quot;</span>
-</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">setTheme</span><span class="p">(</span><span class="nx">themeName</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
 <p><a id="simple-set-synthetic-layout"></a></p>
 
 <h4>setSyntheticLayout</h4>
@@ -552,6 +847,50 @@
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Resizes content based on the container&#39;s size</span>
 </span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">resizeContent</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a id="simple-customize"></a></p>
+
+<h4>customize</h4>
+
+<p>Set custom styles provided by Readium.js</p>
+
+<figure class='code'><figcaption><span>.customize(customStyleName, defaultOrCSSObject) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Setting a default custom style provided with the library</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">styleName</span> <span class="o">=</span> <span class="s2">&quot;epub-border&quot;</span><span class="p">;</span> <span class="c1">// string: one of the custom styles provided by Readium.js</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">defaultOrCSSObject</span> <span class="o">=</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">;</span> <span class="c1">//string: one of the defaults provided by Readium.js for the custom style</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="nx">styleName</span><span class="p">,</span> <span class="nx">defaultOrCSSObject</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Setting a default custom style with CSS</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">defaultOrCSSObject</span> <span class="o">=</span> <span class="p">{</span>      <span class="c1">// object: a string CSS property name, followed by a string CSS property value</span>
+</span><span class='line'>        <span class="s2">&quot;border-style&quot;</span> <span class="o">:</span> <span class="s2">&quot;solid&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;border-color&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="nx">styleName</span><span class="p">,</span> <span class="nx">defaultOrCSSObject</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Styles can also be chained</span>
+</span><span class='line'>    <span class="nx">simpleReadium</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;spine-divider&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-left&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-right&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
 </span></code></pre></td></tr></table></div></figure>
 
 
@@ -933,14 +1272,257 @@ is mixed (contains both reflowable and fixed layout <a href="http://www.idpf.org
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><a id="reader-api"></a></p>
+
 
 <!-- ==========================================================================================================
         READER API DESCRIPTION
      ========================================================================================================== -->
 
 
+<p><a id="reader-api"></a></p>
+
 <h2>EPUB Reader API</h2>
+
+<p><a id="reader-events-example"></a></p>
+
+<h3>Events</h3>
+
+<p>Handlers for each of the events triggered by the reader can set, as follows:</p>
+
+<figure class='code'><figcaption><span>.on() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">theEpub</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;eventName&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Something is done when: eventName is triggered&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Refer to the <a href="#reader-on">on</a> API documentation for the method definition.</p>
+
+<p><a id="reader-epub-loaded"></a></p>
+
+<h4>epubLoaded</h4>
+
+<p>A <em>specified</em> set of EPUB resources have completed rendering.</p>
+
+<p>The specified set of resources depends on the rendering strategy. For example, if a lazy rendering strategy is used the epubLoaded event will be triggered when a single content document has completed rendering.</p>
+
+<p><a id="reader-at-next-page"></a></p>
+
+<h4>atNextPage</h4>
+
+<p>The reader has rendered the next page in the reading order.</p>
+
+<p><a id="reader-at-previous-page"></a></p>
+
+<h4>atPreviousPage</h4>
+
+<p>The reader has rendered the previous page in the reading order.</p>
+
+<p><a id="reader-at-first-page"></a></p>
+
+<h4>atFirstPage</h4>
+
+<p>The reader has reached the first page in the EPUB publication.</p>
+
+<p><a id="reader-at-last-page"></a></p>
+
+<h4>atLastPage</h4>
+
+<p>The reader has reached the last page in the EPUB publication.</p>
+
+<p><a id="reader-epub-link-clicked"></a></p>
+
+<h4>epubLinkClicked</h4>
+
+<p>A link <em>within</em> a content document has been clicked.</p>
+
+<p><a id="reader-layout-changed"></a></p>
+
+<h4>layoutChanged</h4>
+
+<p>The layout has been changed from single-page to a two-page spread, or vice-versa.</p>
+
+<p><a id="reader-displayed-content-changed"></a></p>
+
+<h4>displayedContentChanged</h4>
+
+<p>The displayed content has changed, for any reason. This event will be triggered on page changes,
+repagination, resizing, etc.</p>
+
+<p><a id="reader-custom-styles-example"></a></p>
+
+<h3>Customizable styles</h3>
+
+<p>Custom styles can be set as follows:</p>
+
+<figure class='code'><figcaption><span>.customize() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Setting a default custom style provided with the library</span>
+</span><span class='line'>    <span class="nx">theEpub</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;customStyleName&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Setting a default custom style with CSS</span>
+</span><span class='line'>    <span class="nx">theEpub</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;customStyleName&quot;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;border-style&quot;</span> <span class="o">:</span> <span class="s2">&quot;solid&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;border-color&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Styles can also be chained</span>
+</span><span class='line'>    <span class="nx">theEpub</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;spine-divider&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-left&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-right&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Refer to the API documentation of <a href="#reader-customize">customize</a> for the method definition.</p>
+
+<p><a id="reader-epub-border"></a></p>
+
+<h4>epub-border</h4>
+
+<p>A border that bounds the visible pages, for both fixed and reflowable content documents.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-spine-divider"></a></p>
+
+<h4>spine-divider</h4>
+
+<p>The spine divider shown in a two-page spread, for both fixed and reflowable content documents.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-page-border"></a></p>
+
+<h4>page-border</h4>
+
+<p>The border of each visible page, for both fixed and reflowable content documents. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-margin"></a></p>
+
+<h4>margin</h4>
+
+<p>The margin from the edge of the embedded reading container to the beginning of text. For reflowable content documents only, at the moment.</p>
+
+<p>This custom style takes the place of the setMargin() method, so at present it only accepts integers in string format: &#8220;1&#8221;, &#8220;2&#8221;..etc.</p>
+
+<p><em>Defaults</em>:
+&#8220;1&#8221;, &#8230;, &#8220;5&#8221;</p>
+
+<p><a id="reader-font-size"></a></p>
+
+<h4>fontSize</h4>
+
+<p>Sets the font size for reflowable content documents only.</p>
+
+<p>This custom style takes the place of the setFontSize() method, so at present it only accepts integers in string format: &#8220;1&#8221;, &#8220;2&#8221;..etc.</p>
+
+<p><em>Defaults</em>:
+&#8220;1&#8221;, &#8230;, &#8220;20&#8221;</p>
+
+<p><a id="reader-reflowable-epub-border"></a></p>
+
+<h4>reflowable-epub-border</h4>
+
+<p>A border that bounds visible pages in a reflowable content document.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-reflowable-spine-divider"></a></p>
+
+<h4>reflowable-spine-divider</h4>
+
+<p>A spine divider shown in a two-page spread in a reflowable content document.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-reflowable-page-border"></a></p>
+
+<h4>reflowable-page-border</h4>
+
+<p>The border of each visible page, for reflowable content documents. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-reflowable-page-theme"></a></p>
+
+<h4>reflowable-page-theme</h4>
+
+<p>This custom style replaces the setTheme() method, and is used to provide a &#8220;theme&#8221; for reflowable content documents. Essentially, this can be any styling of the content document itself.</p>
+
+<p><em>Defaults</em>:
+&#8220;night&#8221;, &#8220;vancouver&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-epub-border"></a></p>
+
+<h4>fixed-epub-border</h4>
+
+<p>A border that bounds visible pages for fixed content.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-spine-divider"></a></p>
+
+<h4>fixed-spine-divider</h4>
+
+<p>A spine divider shown in a two-page spread for fixed content.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-page-border"></a></p>
+
+<h4>fixed-page-border</h4>
+
+<p>The border of each visible page, for fixed content documents. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-page-border-left"></a></p>
+
+<h4>fixed-page-border-left</h4>
+
+<p>The border of each visible page that has a page-spread property value of &#8220;left,&#8221; for fixed content. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reader-page-border-right"></a></p>
+
+<h4>fixed-page-border-right</h4>
+
+<p>The border of each visible page that has a page-spread property value of &#8220;right,&#8221; for fixed content. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<h3>Methods</h3>
 
 <p><a id="reader-init"></a></p>
 
@@ -952,7 +1534,7 @@ is mixed (contains both reflowable and fixed layout <a href="http://www.idpf.org
 
 <p>This is a stateful module. State is the <em>DOM element to bind to</em>, the epub resources referenced by the <em>epub spine info</em> object, and <em>viewer settings</em>.</p>
 
-<p>&#8212;&#8212;&#8212;&#8212;- Write something in here about fixed size for the binding element</p>
+<p>The binding element must have a fixed sized set, at present.</p>
 
 <figure class='code'><figcaption><span>new EpubReaderModule(readerBoundElement, epubSpineInfo, viewerSettings, packageDocumentDOM) </span></figcaption>
  <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -1140,50 +1722,6 @@ is mixed (contains both reflowable and fixed layout <a href="http://www.idpf.org
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><a id="reader-set-font-size"></a></p>
-
-<h4>setFontSize</h4>
-
-<p>Set the font size for text.</p>
-
-<figure class='code'><figcaption><span>.setFontSize(fontSize) </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">fontSize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span> <span class="c1">// integer; 1-indexed</span>
-</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">setFontSize</span><span class="p">(</span><span class="nx">fontSize</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><a id="reader-set-margin"></a></p>
-
-<h4>setMargin</h4>
-
-<p>Set the margin for each page.</p>
-
-<figure class='code'><figcaption><span>.setMargin(margin) </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">margin</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// integer; zero-indexed</span>
-</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">setMargin</span><span class="p">(</span><span class="nx">margin</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><a id="reader-set-theme"></a></p>
-
-<h4>setTheme</h4>
-
-<p>Set the theme for the XHTML <a href="http://www.idpf.org/epub/30/spec/epub30-contentdocs.html#sec-overview">content document</a>.</p>
-
-<p><em>EXPECTED API CHANGE</em>: The way themes are set will likely be changed to give developers more flexibility over which elements are styled.</p>
-
-<figure class='code'><figcaption><span>.setTheme(theme) </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">themeName</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">;</span> <span class="c1">// &quot;default&quot;, &quot;vancouver-theme&quot;, &quot;desert-theme&quot;</span>
-</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">setTheme</span><span class="p">(</span><span class="nx">themeName</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
 <p><a id="reader-set-synthetic-layout"></a></p>
 
 <h4>setSyntheticLayout</h4>
@@ -1320,16 +1858,256 @@ is mixed (contains both reflowable and fixed layout <a href="http://www.idpf.org
 </span></code></pre></td></tr></table></div></figure>
 
 
+<p><a id="reader-customize"></a></p>
+
+<h4>customize</h4>
+
+<p>Set custom styles provided by Readium.js</p>
+
+<figure class='code'><figcaption><span>.customize(customStyleName, defaultOrCSSObject) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Setting a default custom style provided with the library</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">styleName</span> <span class="o">=</span> <span class="s2">&quot;epub-border&quot;</span><span class="p">;</span> <span class="c1">// string: one of the custom styles provided by Readium.js</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">defaultOrCSSObject</span> <span class="o">=</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">;</span> <span class="c1">//string: one of the defaults provided by Readium.js for the custom style</span>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="nx">styleName</span><span class="p">,</span> <span class="nx">defaultOrCSSObject</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Setting a default custom style with CSS</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">defaultOrCSSObject</span> <span class="o">=</span> <span class="p">{</span>      <span class="c1">// object: a string CSS property name, followed by a string CSS property value</span>
+</span><span class='line'>        <span class="s2">&quot;border-style&quot;</span> <span class="o">:</span> <span class="s2">&quot;solid&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;border-color&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="nx">epubReader</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="nx">styleName</span><span class="p">,</span> <span class="nx">defaultOrCSSObject</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Styles can also be chained</span>
+</span><span class='line'>    <span class="nx">epubReader</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;spine-divider&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-left&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-right&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 
 
 <!-- ==========================================================================================================
-        REFLOWABLE PAGES VIEW API DESCRIPTION
+        REFLOWABLE PAGE SET API DESCRIPTION
      ========================================================================================================== -->
 
 
 <p><a id="reflowable-api"></a></p>
 
-<h2>Reflowable Pages View</h2>
+<h2>Reflowable Page Set</h2>
+
+<p><a id="reflowable-events-example"></a></p>
+
+<h3>Events</h3>
+
+<p>Handlers for each of the events triggered by a reflowable page set can set, as follows:</p>
+
+<figure class='code'><figcaption><span>.on() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;eventName&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Something is done when: eventName is triggered&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Refer to the <a href="#reader-on">on</a> API documentation for the method definition.</p>
+
+<p><a id="reflowable-epub-loaded"></a></p>
+
+<h4>epubLoaded</h4>
+
+<p>A <em>specified</em> set of EPUB resources have completed rendering.</p>
+
+<p>The specified set of resources depends on the rendering strategy. For example, if a lazy rendering strategy is used the epubLoaded event will be triggered when a single content document has completed rendering.</p>
+
+<p><a id="reflowable-at-next-page"></a></p>
+
+<h4>atNextPage</h4>
+
+<p>The reader has rendered the next page in the reading order.</p>
+
+<p><a id="reflowable-at-previous-page"></a></p>
+
+<h4>atPreviousPage</h4>
+
+<p>The reader has rendered the previous page in the reading order.</p>
+
+<p><a id="reflowable-at-first-page"></a></p>
+
+<h4>atFirstPage</h4>
+
+<p>The reader has reached the first page in the EPUB publication.</p>
+
+<p><a id="reflowable-at-last-page"></a></p>
+
+<h4>atLastPage</h4>
+
+<p>The reader has reached the last page in the EPUB publication.</p>
+
+<p><a id="reflowable-epub-link-clicked"></a></p>
+
+<h4>epubLinkClicked</h4>
+
+<p>A link <em>within</em> a content document has been clicked.</p>
+
+<p><a id="reflowable-layout-changed"></a></p>
+
+<h4>layoutChanged</h4>
+
+<p>The layout has been changed from single-page to a two-page spread, or vice-versa.</p>
+
+<p><a id="reflowable-displayed-content-changed"></a></p>
+
+<h4>displayedContentChanged</h4>
+
+<p>The displayed content has changed, for any reason. This event will be triggered on page changes,
+repagination, resizing, etc.</p>
+
+<p><a id="reflowable-custom-styles-example"></a></p>
+
+<h3>Customizable styles</h3>
+
+<p>Custom styles can be set as follows:</p>
+
+<figure class='code'><figcaption><span>.customize() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Setting a default custom style provided with the library</span>
+</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;customStyleName&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Setting a default custom style with CSS</span>
+</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;customStyleName&quot;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;border-style&quot;</span> <span class="o">:</span> <span class="s2">&quot;solid&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;border-color&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Styles can also be chained</span>
+</span><span class='line'>    <span class="nx">reflowablePages</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;spine-divider&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-left&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-right&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Refer to the API documentation of <a href="#reflowable-customize">customize</a> for the method definition.</p>
+
+<p><a id="reflowable-epub-border"></a></p>
+
+<h4>epub-border</h4>
+
+<p>A border that bounds the visible pages.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reflowable-spine-divider"></a></p>
+
+<h4>spine-divider</h4>
+
+<p>The spine divider shown in a two-page spread.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reflowable-page-border"></a></p>
+
+<h4>page-border</h4>
+
+<p>The border of each visible page. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reflowable-margin"></a></p>
+
+<h4>margin</h4>
+
+<p>The margin from the edge of the embedded reading container to the beginning of text.</p>
+
+<p>This custom style takes the place of the setMargin() method, so at present it only accepts integers in string format: &#8220;1&#8221;, &#8220;2&#8221;..etc.</p>
+
+<p><em>Defaults</em>:
+&#8220;1&#8221;, &#8230;, &#8220;5&#8221;</p>
+
+<p><a id="reflowable-font-size"></a></p>
+
+<h4>fontSize</h4>
+
+<p>Sets the font size.</p>
+
+<p>This custom style takes the place of the setFontSize() method, so at present it only accepts integers in string format: &#8220;1&#8221;, &#8220;2&#8221;..etc.</p>
+
+<p><em>Defaults</em>:
+&#8220;1&#8221;, &#8230;, &#8220;20&#8221;</p>
+
+<p><a id="reflowable-reflowable-epub-border"></a></p>
+
+<h4>reflowable-epub-border</h4>
+
+<p>A border that bounds visible pages in a reflowable content document.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reflowable-reflowable-spine-divider"></a></p>
+
+<h4>reflowable-spine-divider</h4>
+
+<p>A spine divider shown in a two-page spread in a reflowable content document.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reflowable-reflowable-page-border"></a></p>
+
+<h4>reflowable-page-border</h4>
+
+<p>The border of each visible page, for reflowable content documents. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="reflowable-reflowable-page-theme"></a></p>
+
+<h4>reflowable-page-theme</h4>
+
+<p>This custom style replaces the setTheme() method, and is used to provide a &#8220;theme&#8221; for reflowable content documents. Essentially, this can be any styling of the content document itself.</p>
+
+<p><em>Defaults</em>:
+&#8220;night&#8221;, &#8220;vancouver&#8221;, &#8220;none&#8221;</p>
+
+<h3>Methods</h3>
 
 <p><a id="reflowable-init"></a></p>
 
@@ -1571,50 +2349,6 @@ is mixed (contains both reflowable and fixed layout <a href="http://www.idpf.org
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><a id="reflowable-set-font-size"></a></p>
-
-<h4>setFontSize</h4>
-
-<p>Set the font size for text.</p>
-
-<figure class='code'><figcaption><span>.setFontSize(fontSize) </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">fontSize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span> <span class="c1">// integer; 1-indexed</span>
-</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">setFontSize</span><span class="p">(</span><span class="nx">fontSize</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><a id="reflowable-set-margin"></a></p>
-
-<h4>setMargin</h4>
-
-<p>Set the margin for each page.</p>
-
-<figure class='code'><figcaption><span>.setMargin(margin) </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">margin</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// integer; zero-indexed</span>
-</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">setMargin</span><span class="p">(</span><span class="nx">margin</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><a id="reflowable-set-theme"></a></p>
-
-<h4>setTheme</h4>
-
-<p>Set the theme for the XHTML <a href="http://www.idpf.org/epub/30/spec/epub30-contentdocs.html#sec-overview">content document</a>.</p>
-
-<p><em>EXPECTED API CHANGE</em>: The way themes are set will likely be changed to give developers more flexibility over which elements are styled.</p>
-
-<figure class='code'><figcaption><span>.setTheme(theme) </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">themeName</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">;</span> <span class="c1">// &quot;default&quot;, &quot;vancouver-theme&quot;, &quot;desert-theme&quot;</span>
-</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">setTheme</span><span class="p">(</span><span class="nx">themeName</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
 <p><a id="reflowable-set-synthetic-layout"></a></p>
 
 <h4>setSyntheticLayout</h4>
@@ -1687,16 +2421,243 @@ is mixed (contains both reflowable and fixed layout <a href="http://www.idpf.org
 </span></code></pre></td></tr></table></div></figure>
 
 
+<p><a id="reflowable-customize"></a></p>
+
+<h4>customize</h4>
+
+<p>Set custom styles provided by Readium.js</p>
+
+<figure class='code'><figcaption><span>.customize(customStyleName, defaultOrCSSObject) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Setting a default custom style provided with the library</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">styleName</span> <span class="o">=</span> <span class="s2">&quot;epub-border&quot;</span><span class="p">;</span> <span class="c1">// string: one of the custom styles provided by Readium.js</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">defaultOrCSSObject</span> <span class="o">=</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">;</span> <span class="c1">//string: one of the defaults provided by Readium.js for the custom style</span>
+</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="nx">styleName</span><span class="p">,</span> <span class="nx">defaultOrCSSObject</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Setting a default custom style with CSS</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">defaultOrCSSObject</span> <span class="o">=</span> <span class="p">{</span>      <span class="c1">// object: a string CSS property name, followed by a string CSS property value</span>
+</span><span class='line'>        <span class="s2">&quot;border-style&quot;</span> <span class="o">:</span> <span class="s2">&quot;solid&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;border-color&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="nx">reflowablePages</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="nx">styleName</span><span class="p">,</span> <span class="nx">defaultOrCSSObject</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Styles can also be chained</span>
+</span><span class='line'>    <span class="nx">reflowablePages</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;spine-divider&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-left&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-right&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 
 
 <!-- ==========================================================================================================
-        FIXED PAGES VIEW API DESCRIPTION
+        FIXED PAGE SET API DESCRIPTION
      ========================================================================================================== -->
 
 
 <p><a id="fixed-api"></a></p>
 
-<h2>Fixed Pages View</h2>
+<h2>Fixed Page Set</h2>
+
+<p><a id="fixed-events-example"></a></p>
+
+<h3>Events</h3>
+
+<p>Handlers for each of the events triggered by a fixed page set can set, as follows:</p>
+
+<figure class='code'><figcaption><span>.on() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">on</span><span class="p">(</span><span class="s2">&quot;eventName&quot;</span><span class="p">,</span> <span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+</span><span class='line'>        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&quot;Something is done when: eventName is triggered&quot;</span><span class="p">);</span>
+</span><span class='line'>    <span class="p">},</span> <span class="k">this</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Refer to the <a href="#reader-on">on</a> API documentation for the method definition.</p>
+
+<p><a id="fixed-epub-loaded"></a></p>
+
+<h4>epubLoaded</h4>
+
+<p>A <em>specified</em> set of EPUB resources have completed rendering.</p>
+
+<p>The specified set of resources depends on the rendering strategy. For example, if a lazy rendering strategy is used the epubLoaded event will be triggered when a single content document has completed rendering.</p>
+
+<p><a id="fixed-at-next-page"></a></p>
+
+<h4>atNextPage</h4>
+
+<p>The reader has rendered the next page in the reading order.</p>
+
+<p><a id="fixed-at-previous-page"></a></p>
+
+<h4>atPreviousPage</h4>
+
+<p>The reader has rendered the previous page in the reading order.</p>
+
+<p><a id="fixed-at-first-page"></a></p>
+
+<h4>atFirstPage</h4>
+
+<p>The reader has reached the first page in the EPUB publication.</p>
+
+<p><a id="fixed-at-last-page"></a></p>
+
+<h4>atLastPage</h4>
+
+<p>The reader has reached the last page in the EPUB publication.</p>
+
+<p><a id="fixed-epub-link-clicked"></a></p>
+
+<h4>epubLinkClicked</h4>
+
+<p>A link <em>within</em> a content document has been clicked.</p>
+
+<p><a id="fixed-layout-changed"></a></p>
+
+<h4>layoutChanged</h4>
+
+<p>The layout has been changed from single-page to a two-page spread, or vice-versa.</p>
+
+<p><a id="fixed-displayed-content-changed"></a></p>
+
+<h4>displayedContentChanged</h4>
+
+<p>The displayed content has changed, for any reason. This event will be triggered on page changes,
+repagination, resizing, etc.</p>
+
+<p><a id="fixed-custom-styles-example"></a></p>
+
+<h3>Customizable styles</h3>
+
+<p>Custom styles can be set as follows:</p>
+
+<figure class='code'><figcaption><span>.customize() </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Setting a default custom style provided with the library</span>
+</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;customStyleName&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Setting a default custom style with CSS</span>
+</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;customStyleName&quot;</span><span class="p">,</span> <span class="p">{</span>
+</span><span class='line'>        <span class="s2">&quot;border-style&quot;</span> <span class="o">:</span> <span class="s2">&quot;solid&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;border-color&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+</span><span class='line'>    <span class="p">});</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Styles can also be chained</span>
+</span><span class='line'>    <span class="nx">fixedPages</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;spine-divider&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-left&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-right&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Refer to the API documentation of <a href="#fixed-customize">customize</a> for the method definition.</p>
+
+<p><a id="fixed-epub-border"></a></p>
+
+<h4>epub-border</h4>
+
+<p>A border that bounds the visible pages.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="fixed-spine-divider"></a></p>
+
+<h4>spine-divider</h4>
+
+<p>The spine divider shown in a two-page spread.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="fixed-page-border"></a></p>
+
+<h4>page-border</h4>
+
+<p>The border of each visible page. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="fixed-epub-border"></a></p>
+
+<h4>fixed-epub-border</h4>
+
+<p>A border that bounds visible pages for fixed content.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="fixed-spine-divider"></a></p>
+
+<h4>fixed-spine-divider</h4>
+
+<p>A spine divider shown in a two-page spread for fixed content.</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="fixed-page-border"></a></p>
+
+<h4>fixed-page-border</h4>
+
+<p>The border of each visible page, for fixed content documents. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="fixed-page-border-left"></a></p>
+
+<h4>fixed-page-border-left</h4>
+
+<p>The border of each visible page that has a page-spread property value of &#8220;left,&#8221; for fixed content. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<p><a id="fixed-page-border-right"></a></p>
+
+<h4>fixed-page-border-right</h4>
+
+<p>The border of each visible page that has a page-spread property value of &#8220;right,&#8221; for fixed content. This should not be used in conjunction with the &#8220;epub-border.&#8221;</p>
+
+<p><em>Defaults</em>:
+&#8220;box-shadow&#8221;, &#8220;none&#8221;</p>
+
+<h3>Methods</h3>
 
 <p><a id="fixed-init"></a></p>
 
@@ -1972,50 +2933,6 @@ is mixed (contains both reflowable and fixed layout <a href="http://www.idpf.org
 </span></code></pre></td></tr></table></div></figure>
 
 
-<p><a id="fixed-set-font-size"></a></p>
-
-<h4>setFontSize</h4>
-
-<p>Set the font size for text.</p>
-
-<figure class='code'><figcaption><span>.setFontSize(fontSize) </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="nx">fontSize</span> <span class="o">=</span> <span class="mi">12</span><span class="p">;</span> <span class="c1">// integer; 1-indexed</span>
-</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">setFontSize</span><span class="p">(</span><span class="nx">fontSize</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><a id="fixed-set-margin"></a></p>
-
-<h4>setMargin</h4>
-
-<p>Set the margin for each page.</p>
-
-<figure class='code'><figcaption><span>.setMargin(margin) </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">margin</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span> <span class="c1">// integer; zero-indexed</span>
-</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">setMargin</span><span class="p">(</span><span class="nx">margin</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><a id="fixed-set-theme"></a></p>
-
-<h4>setTheme</h4>
-
-<p>Set the theme for the XHTML <a href="http://www.idpf.org/epub/30/spec/epub30-contentdocs.html#sec-overview">content document</a>.</p>
-
-<p><em>EXPECTED API CHANGE</em>: The way themes are set will likely be changed to give developers more flexibility over which elements are styled.</p>
-
-<figure class='code'><figcaption><span>.setTheme(theme) </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="kd">var</span> <span class="nx">themeName</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">;</span> <span class="c1">// &quot;default&quot;, &quot;vancouver-theme&quot;, &quot;desert-theme&quot;</span>
-</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">setTheme</span><span class="p">(</span><span class="nx">themeName</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
 <p><a id="fixed-set-synthetic-layout"></a></p>
 
 <h4>setSyntheticLayout</h4>
@@ -2088,6 +3005,50 @@ is mixed (contains both reflowable and fixed layout <a href="http://www.idpf.org
 </span></code></pre></td></tr></table></div></figure>
 
 
+<p><a id="fixed-customize"></a></p>
+
+<h4>customize</h4>
+
+<p>Set custom styles provided by Readium.js</p>
+
+<figure class='code'><figcaption><span>.customize(customStyleName, defaultOrCSSObject) </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class='javascript'><span class='line'>    <span class="c1">// Setting a default custom style provided with the library</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">styleName</span> <span class="o">=</span> <span class="s2">&quot;epub-border&quot;</span><span class="p">;</span> <span class="c1">// string: one of the custom styles provided by Readium.js</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">defaultOrCSSObject</span> <span class="o">=</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">;</span> <span class="c1">//string: one of the defaults provided by Readium.js for the custom style</span>
+</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="nx">styleName</span><span class="p">,</span> <span class="nx">defaultOrCSSObject</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Setting a default custom style with CSS</span>
+</span><span class='line'>    <span class="kd">var</span> <span class="nx">defaultOrCSSObject</span> <span class="o">=</span> <span class="p">{</span>      <span class="c1">// object: a string CSS property name, followed by a string CSS property value</span>
+</span><span class='line'>        <span class="s2">&quot;border-style&quot;</span> <span class="o">:</span> <span class="s2">&quot;solid&quot;</span><span class="p">,</span>
+</span><span class='line'>        <span class="s2">&quot;border-color&quot;</span> <span class="o">:</span> <span class="s2">&quot;red&quot;</span>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>    <span class="nx">fixedPages</span><span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="nx">styleName</span><span class="p">,</span> <span class="nx">defaultOrCSSObject</span><span class="p">);</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// Styles can also be chained</span>
+</span><span class='line'>    <span class="nx">fixedPages</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;spine-divider&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-left&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="p">.</span><span class="nx">customize</span><span class="p">(</span><span class="s2">&quot;fixed-page-border-right&quot;</span><span class="p">,</span> <span class="s2">&quot;box-shadow&quot;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
 
 
 <!-- ==========================================================================================================
@@ -2143,6 +3104,14 @@ is mixed (contains both reflowable and fixed layout <a href="http://www.idpf.org
   <div class="span3">
     <h2>recent posts</h2>
     <ul class="recent_posts">
+      
+        <li>
+          <a href="/Readium-Web-Components/blog/2013/06/27/roadmap/">Readium.js Roadmap</a>
+        </li>
+      
+        <li>
+          <a href="/Readium-Web-Components/blog/2013/06/27/changes-to-the-api/">Changes to the Readium.js API</a>
+        </li>
       
         <li>
           <a href="/Readium-Web-Components/blog/2013/05/29/welcome-to-readium-js/">Welcome to Readium.js</a>
