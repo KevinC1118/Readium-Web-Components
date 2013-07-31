@@ -1,3 +1,4 @@
+.*
 .DS_Store
 epub-modules/development/
 epub-modules/epub-media-overlays/lib/
@@ -12,3 +13,4 @@ epub-modules/epub-fetch/min/
 epub-modules/epub-parser/min/
 epub-modules/epub-ers/min/
 epub-modules/simple-readium-js/min/
+node_modules

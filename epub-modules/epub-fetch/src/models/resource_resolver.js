@@ -1,9 +1,13 @@
+'use strict';
+
 define(['require', 'module', 'jquery', 'URIjs/URI', './fetch_base'], function (require, module, $, URI, EpubFetchBase) {
     console.log('resource_resolver module id: ' + module.id);
 
     var ResourceResolver = EpubFetchBase.extend({
-        initialize: function (attributes) {
-        },
+
+        // Not used
+        // initialize: function (attributes) {
+        // },
 
         _resolveResourceElements: function (elemName, refAttr, contentDocumentDom, contentDocumentURI,
                                             resolutionDeferreds) {

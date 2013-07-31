@@ -1,10 +1,13 @@
+'use strict';
+
 define(['require', 'module', 'jquery', 'URIjs/URI', './fetch_base'], function (require, module, $, URI, EpubFetchBase) {
     console.log('plain_fetcher module id: ' + module.id);
 
     var PlainExplodedFetcher = EpubFetchBase.extend({
 
-        initialize: function (attributes) {
-        },
+        // because not used
+        // initialize: function (attributes) {
+        // },
 
         // Plain exploded EPUB packages are exploded by definition:
         isExploded: function () {
@@ -19,7 +22,7 @@ define(['require', 'module', 'jquery', 'URIjs/URI', './fetch_base'], function (r
         },
 
         fetchFileContentsText: function (fileUrl, fetchCallback, onerror) {
-            var thisFetcher = this;
+            // var thisFetcher = this;
             $.ajax({
                 url: fileUrl,
                 dataType: 'text',
@@ -27,7 +30,7 @@ define(['require', 'module', 'jquery', 'URIjs/URI', './fetch_base'], function (r
                     fetchCallback(result);
                 },
                 error: function (xhr, status, errorThrown) {
-                    console.log('Error when AJAX fetching ' + fullUrl);
+                    console.log('Error when AJAX fetching ' + fileUrl);
                     console.log(status);
                     console.log(errorThrown);
                     onerror(errorThrown);

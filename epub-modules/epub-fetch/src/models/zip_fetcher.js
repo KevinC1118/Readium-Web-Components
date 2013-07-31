@@ -1,4 +1,6 @@
-define(['require', 'module', 'jquery', 'URIjs/URI', './fetch_base'], function (require, module, $, URI, EpubFetchBase) {
+'use strict';
+
+define(['require', 'module', 'jquery', 'URIjs/URI', './fetch_base', 'zipfs'], function (require, module, $, URI, EpubFetchBase, zip) {
     console.log('zip_fetcher module id: ' + module.id);
 
     var ZipFetcher = EpubFetchBase.extend({
@@ -7,29 +9,31 @@ define(['require', 'module', 'jquery', 'URIjs/URI', './fetch_base'], function (r
             'checkCrc32': false
         },
 
-        initialize: function (attributes) {
-        },
+        // Not used
+        // initialize: function (attributes) {
+        // },
 
         // Description: perform a function with an initialized zip filesystem, making sure that such filesystem is initialized.
         // Note that due to a race condition, more than one zip filesystem may be instantiated.
         // However, the last one to be set on the model object will prevail and others would be garbage collected later.
         _withZipFsPerform: function (callback, onerror) {
-            var thisFetcher = this;
+            var thisFetcher = this,
+                zipFs;
             if (thisFetcher.has('_zipFs')) {
-                var zipFs = thisFetcher.get('_zipFs');
+                zipFs = thisFetcher.get('_zipFs');
                 callback(zipFs);
 
             } else {
-                var zipUrl = thisFetcher.get('baseUrl');
-                var libDir = thisFetcher.get('libDir');
+                var zipUrl = thisFetcher.get('baseUrl'),
+                    libDir = thisFetcher.get('libDir');
                 console.log('zip.workerScriptsPath = ' + libDir);
                 zip.workerScriptsPath = libDir;
-                var zipFs = new zip.fs.FS();
+                zipFs = new zip.fs.FS();
                 zipFs.importHttpContent(zipUrl, true, function () {
                     thisFetcher.set('_zipFs', zipFs);
                     callback(zipFs);
 
-                }, onerror)
+                }, onerror);
             }
         },
 
@@ -66,7 +70,7 @@ define(['require', 'module', 'jquery', 'URIjs/URI', './fetch_base'], function (r
             var thisFetcher = this;
             thisFetcher.fetchFileContents(relativePath, function (entry) {
                 entry.getText(fetchCallback, undefined, thisFetcher.get('checkCrc32'));
-            }, onerror)
+            }, onerror);
         },
 
         fetchFileContentsData64Uri: function (relativePath, fetchCallback, onerror) {
@@ -74,7 +78,7 @@ define(['require', 'module', 'jquery', 'URIjs/URI', './fetch_base'], function (r
             thisFetcher.fetchFileContents(relativePath, function (entry) {
                 entry.getData64URI(thisFetcher._identifyContentTypeFromFileName(relativePath), fetchCallback, undefined,
                     thisFetcher.get('checkCrc32'));
-            }, onerror)
+            }, onerror);
         },
 
         fetchFileContentsBlob: function (relativePath, fetchCallback, onerror) {
@@ -82,7 +86,7 @@ define(['require', 'module', 'jquery', 'URIjs/URI', './fetch_base'], function (r
             thisFetcher.fetchFileContents(relativePath, function (entry) {
                 entry.getBlob(thisFetcher._identifyContentTypeFromFileName(relativePath), fetchCallback, undefined,
                     thisFetcher.get('checkCrc32'));
-            }, onerror)
+            }, onerror);
         },
 
         relativeToPackageFetchFileContents: function (relativeToPackagePath, fetchMode, fetchCallback, onerror) {
@@ -158,7 +162,7 @@ define(['require', 'module', 'jquery', 'URIjs/URI', './fetch_base'], function (r
                             initializationSubscriptions.forEach(function (subscriberCallback) {
                                 subscriberCallback(packageDom);
                             });
-                        })
+                        });
                     });
                 }
             }

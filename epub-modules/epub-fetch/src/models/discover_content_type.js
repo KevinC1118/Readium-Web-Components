@@ -1,10 +1,13 @@
+'use strict';
+
 define(['require', 'module', 'jquery', 'backbone', 'URIjs/URI'], function (require, module, $, Backbone, URI) {
     console.log('discover_content_type module id: ' + module.id);
 
     var ContentTypeDiscovery = Backbone.Model.extend({
 
-        initialize: function (attributes) {
-        },
+        // because not used
+        // initialize: function (attributes) {
+        // },
 
         identifyContentTypeFromFileName: function (contentUrl) {
             var contentUrlSuffix = URI(contentUrl).suffix();
@@ -37,7 +40,7 @@ define(['require', 'module', 'jquery', 'backbone', 'URIjs/URI'], function (requi
             sep = contentType.indexOf(';');
             if (sep > 0) {
                 contentType = contentType.substring(0, sep);
-                contentType = content.trim();
+                contentType = contentType.trim();
             }
             return contentType;
         }

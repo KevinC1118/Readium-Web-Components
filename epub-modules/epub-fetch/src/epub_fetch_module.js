@@ -1,3 +1,5 @@
+'use strict';
+
 define(['require', 'module', 'jquery', 'underscore', 'backbone', './models/package_fetcher' ],
     function (require, module, $, _, Backbone, PackageFetcher) {
 
@@ -5,7 +7,7 @@ define(['require', 'module', 'jquery', 'underscore', 'backbone', './models/packa
         console.log(module.id + 'Backbone:' + Backbone);
 
         var EpubFetchModule = Backbone.Model.extend({
-            initialize: function (attributes) {
+            initialize: function () {
                 this.set('packageFetcher', new PackageFetcher({
                     packageDocumentURL: this.get('packageDocumentURL'),
                     libDir: this.get('libDir')
@@ -19,7 +21,7 @@ define(['require', 'module', 'jquery', 'underscore', 'backbone', './models/packa
             getPackageDom: function (callback) {
                 this.get('packageFetcher').getPackageDom(callback);
             },
-            getPackageDocumentURL: function (callback) {
+            getPackageDocumentURL: function () {
                 return this.get('packageDocumentURL');
             },
             isPackageExploded: function () {

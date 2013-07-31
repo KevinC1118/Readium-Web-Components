@@ -1,3 +1,5 @@
+'use strict';
+
 define(['require', 'module', './fetch_base', './discover_content_type', './plain_fetcher', './zip_fetcher',
     './resource_resolver'],
     function (require, module, EpubFetchBase, ContentTypeDiscovery, PlainExplodedFetcher, ZipFetcher,
@@ -7,7 +9,7 @@ define(['require', 'module', './fetch_base', './discover_content_type', './plain
 
         var PackageFetcher = EpubFetchBase.extend({
 
-            initialize: function (attributes) {
+            initialize: function () {
                 var contentTypeDiscovery = new ContentTypeDiscovery({'contentUrl': this.get('packageDocumentURL')});
                 this.set('_contentTypeDiscovery', contentTypeDiscovery);
                 this._setupPackageContentType();
@@ -22,7 +24,7 @@ define(['require', 'module', './fetch_base', './discover_content_type', './plain
                 var readStrategy = 'exploded';
                 var packageContentType = this.getPackageContentType();
                 if (packageContentType in this.constructor.contentTypePackageReadStrategyMap) {
-                    readStrategy = this.constructor.contentTypePackageReadStrategyMap[packageContentType]
+                    readStrategy = this.constructor.contentTypePackageReadStrategyMap[packageContentType];
                 }
                 return readStrategy;
             },
