@@ -18,17 +18,26 @@ define(['require', 'module', 'jquery', 'backbone', 'URIjs/URI'], function (requi
         identifyContentType: function () {
             // TODO: Make the call asynchronous (which would require a callback and would probably make sense
             // when calling functions are also remodelled for async).
-            var contentUrl = this.get('contentUrl');
-            var contentType = $.ajax({
-                type: "HEAD",
-                url: contentUrl,
-                async: false
-            }).getResponseHeader('Content-Type');
+            var contentUrl = this.get('contentUrl'),
+                contentType = $.ajax({
+                    type: "HEAD",
+                    url: contentUrl,
+                    async: false
+                }).getResponseHeader('Content-Type'),
+                sep;
+
             if (contentType === null) {
                 contentType = this.identifyContentTypeFromFileName(contentUrl);
                 console.log('guessed contentType [' + contentType + '] from URI [' + contentUrl +
                     ']. Configuring the web server to provide the content type is recommended.');
 
+            }
+
+            // Remove charset value if it has.
+            sep = contentType.indexOf(';');
+            if (sep > 0) {
+                contentType = contentType.substring(0, sep);
+                contentType = content.trim();
             }
             return contentType;
         }
