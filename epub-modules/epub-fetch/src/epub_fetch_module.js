@@ -10,7 +10,7 @@ define(['require', 'module', 'jquery', 'underscore', 'backbone', './models/packa
             initialize: function () {
                 this.set('packageFetcher', new PackageFetcher({
                     packageDocumentURL: this.get('packageDocumentURL'),
-                    libDir: this.get('libDir')
+                    libDir: this.get('libDir')  // This is only used when fetch epub zip file.
                 }));
             },
 
