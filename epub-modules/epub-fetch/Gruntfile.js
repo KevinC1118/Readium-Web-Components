@@ -47,22 +47,26 @@ module.exports = function(grunt) {
         connect: {
             test: {
                 options: {
-                    port: 8888
+                    port: 8888,
+                    base: '../'
                 }
             }
         },
         jasmine: {
             test: {
-                src: "src/**/*.js",
+                src: "src/models/**/*.js",
                 options: {
-                    specs: 'spec/javascripts/models/*.js',
-                    host: 'http://localhost:8888/',
+                    specs: 'spec/javascripts/models/**/*.js',
+                    host: 'http://localhost:8888/epub-fetch/',
                     vendor: [
                         '../lib/sinon-1.7.3.js'
                     ],
                     template: require('grunt-template-jasmine-requirejs'),
                     templateOptions: {
-                        requireConfigFile: 'build.js'
+                        requireConfigFile: 'build.js',
+                        requireConfig: {
+                            baseUrl: 'src'
+                        }
                     }
                 }
             }
