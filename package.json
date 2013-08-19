@@ -1,5 +1,10 @@
 {
-    "name": "Readium.js",
-    "version": "1.0.0-alpha",
-    "description": "Readium.js makes it easy to deploy EPUB 3 support on the web"
+  "name": "Readium.js",
+  "version": "1.0.0-alpha",
+  "description": "Readium.js makes it easy to deploy EPUB 3 support on the web",
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-copy": "~0.4.1",
+    "grunt-contrib-clean": "~0.5.0"
+  }
 }
