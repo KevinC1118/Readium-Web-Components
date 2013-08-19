@@ -14,3 +14,4 @@ epub-modules/epub-parser/min/
 epub-modules/epub-ers/min/
 epub-modules/simple-readium-js/min/
 node_modules
+epub-modules/release/amd/
