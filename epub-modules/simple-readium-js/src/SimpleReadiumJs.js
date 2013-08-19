@@ -9,7 +9,7 @@ define(['require', 'module', 'jquery', 'underscore', 'backbone', 'epub_fetch_mod
          * @constructor
          * @param elementToBindReaderTo The document element to bind display of the reader to.
          * @param viewerPreferences The object holding the viewer settings.
-         * @param viewerPreferences The URI of the package document (.opf file for exploded packages, .epub file for zipped ones).
+         * @param packageDocumentURL The URI of the package document (.opf file for exploded packages, .epub file for zipped ones).
          * @param jsLibDir The path (relative to the current document) in which dependant zip.js libraries can be found.
          * @param renderStrategy The render stratego to be used, "lazy" or "eager".
          * @param definitionCallback The callback function that asynchronously receives the object's public interface once it has been initialized (document has been parsed).
